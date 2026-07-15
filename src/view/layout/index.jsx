@@ -3,9 +3,9 @@ import { Header } from "../components/header";
 
 export function Layout() {
   return (
-    <div>
+    <div className="">
       <Header />
-      <div className="mt-6 mx-6">
+      <div className="mt-6 h-full">
         <Outlet />
       </div>
     </div>
