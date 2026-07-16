@@ -5,15 +5,17 @@ import { FaWhatsapp } from "react-icons/fa";
 export function Header() {
   return (
     <Link
-      className="bg-blue-700 p-4 sticky top-0 flex justify-between z-100"
+      className="bg-blue-700 p-4 sticky top-0 flex justify-between md:justify-center z-100 "
       to={"/"}
     >
-      <div className="flex items-center gap-2 text-white text-2xl">
-        <img className="w-10 " src={logo} alt="logo" />
-      </div>
+      <div className="md:w-250 md:flex md:justify-between md:px-6 flex justify-between w-full">
+        <div className="flex items-center gap-2 text-white text-2xl">
+          <img className="w-10 " src={logo} alt="logo" />
+        </div>
 
-      <div className="border border-white rounded-md p-2 flex items-center justify-center text-xs text-white">
-        <FaWhatsapp /> Entre em contato
+        <div className="border w-fit border-white rounded-md p-2 px-4- flex items-center justify-center text-xs text-white gap-2">
+          <FaWhatsapp className="text-xl" /> Entre em contato
+        </div>
       </div>
     </Link>
   );
