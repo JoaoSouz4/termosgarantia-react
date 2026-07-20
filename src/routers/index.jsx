@@ -17,6 +17,7 @@ export function Router() {
               element={
                 <WarrantyCategoryPage
                   warrantyExclusions={category.exclusions}
+                  warrantyCoverage={category.coverage}
                 />
               }
             />

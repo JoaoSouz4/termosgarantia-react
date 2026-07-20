@@ -13,8 +13,8 @@ export function Header() {
           <img className="w-10 " src={logo} alt="logo" />
         </div>
 
-        <div className="border w-fit border-white rounded-md p-2 px-4- flex items-center justify-center text-xs text-white gap-2">
-          <FaWhatsapp className="text-xl" /> Entre em contato
+        <div className="border w-fit border-white rounded-xl p-2 px-4- flex items-center justify-center text-xs text-white gap-2">
+          <FaWhatsapp className="text-sm" /> Entre em contato
         </div>
       </div>
     </Link>

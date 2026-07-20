@@ -4,8 +4,6 @@ import { IoMdSettings } from "react-icons/io";
 import { ServiceCard } from "./card";
 import normalScreen3 from "../../../assets/normalScreen3.png";
 import battery from "../../../assets/battery.png";
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
 import conector from "../../../assets/conector.png";
 import placa from "../../../assets/placa.png";
 
@@ -72,21 +70,40 @@ export function Home() {
         </div>
       </section>
 
-      <footer className="m-4 mt-8 border-t border-slate-200 pt-6">
-        <div className="text-center  text-slate-400 mb-2 text-sm">
-          BH Assistência técnica - PVH (RO)
-        </div>
-        <div className="text-slate-400 text-sm text-center">
-          <div>Avenida calama 5863</div>
-          <div>Avenida José Amador dos reis 3110</div>
-        </div>
-        <div className="text-center mt-4 flex justify-center">
-          <div className="flex gap-4 text-slate-500 text-xl ">
-            <FaInstagram />
-            <FaFacebook />
+      <section className="p-6">
+        <div className="">
+          <div className="flex flex-col">
+            <h1 className="text-xl font-bold text-gray-800">
+              Observações importantes*
+            </h1>
+            <span className="w-1/2 h-0.5 mt-1 bg-amber-300" />
           </div>
         </div>
-      </footer>
+        <p className="text-gray-700 mt-4">
+          A garantia cobre exclusivamente defeitos de fabricação das peças
+          utilizadas no serviço e eventuais falhas relacionadas à mão de obra.
+          Ela não deve ser confundida com um seguro. Danos causados por quedas,
+          impactos, pressão, contato com líquidos, mau uso, desgaste natural ou
+          defeitos preexistentes não fazem parte da cobertura da garantia
+          oferecida pela loja.
+        </p>
+      </section>
+
+      <section className="p-6">
+        <div className="flex flex-col">
+          <h1 className="text-xl font-bold text-gray-800">
+            Meu aparelho não passa na garantia. E agora?
+          </h1>
+          <span className="w-1/3 h-0.5 mt-1 bg-amber-300" />
+        </div>
+        <p className="text-gray-700 mt-4">
+          Nem todo defeito é coberto pela garantia, mas isso não significa que
+          você ficará sem suporte. Fale com a nossa equipe. Sempre analisamos
+          cada caso com transparência e buscamos a solução mais econômica
+          possível para os nossos clientes. A honestidade e a confiança fazem
+          toda a diferença nesse processo.
+        </p>
+      </section>
     </div>
   );
 }

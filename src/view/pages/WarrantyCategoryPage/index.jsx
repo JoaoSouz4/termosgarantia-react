@@ -1,9 +1,25 @@
+import { Toogle } from "./components/toogle";
+import { useState } from "react";
 import { WarrantyExclusion } from "./components/WarrantyExclusion";
 
-export function WarrantyCategoryPage({ warrantyExclusions }) {
+export function WarrantyCategoryPage({ warrantyExclusions, warrantyCoverage }) {
+  const [content, setContent] = useState({
+    type: "exclusions",
+    data: warrantyExclusions,
+  });
+
+  function handleToogle() {
+    if (content.type == "exclusions") {
+      setContent({ type: "coverage", data: warrantyCoverage });
+    } else {
+      setContent({ type: "exclusions", data: warrantyExclusions });
+    }
+  }
+
   return (
     <div className="m-5">
-      {warrantyExclusions.map(({ id, title, description, tags, images }) => (
+      <Toogle onToogle={handleToogle} />
+      {content.data.map(({ id, title, description, tags, images }) => (
         <WarrantyExclusion
           key={id}
           index={id}
