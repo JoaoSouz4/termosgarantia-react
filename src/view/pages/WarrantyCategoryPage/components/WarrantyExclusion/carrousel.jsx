@@ -1,37 +1,46 @@
-import { CarouselControl } from "./carouselControl";
 import { useRef } from "react";
+import { CarouselControl } from "./carouselControl";
+
 export function Carrousel({ pathImages }) {
   const carouselRef = useRef(null);
 
   function handleNext() {
-    const carousel = carouselRef.current;
-    carousel.scrollBy({
-      left: carousel.clientWidth,
+    carouselRef.current?.scrollBy({
+      left: carouselRef.current.clientWidth,
       behavior: "smooth",
     });
   }
 
   function handlePrev() {
-    const carousel = carouselRef.current;
-    carousel.scrollBy({
-      left: -carousel.clientWidth,
+    carouselRef.current?.scrollBy({
+      left: -carouselRef.current.clientWidth,
       behavior: "smooth",
     });
   }
+
   return (
-    <div className="flex items-center justify-center">
-      <CarouselControl direction={"prev"} callback={handlePrev} />
+    <div className="flex h-full min-h-0 items-center gap-2">
+      <CarouselControl direction="prev" callback={handlePrev} />
+
       <div
         ref={carouselRef}
-        className=" w-[70%] overflow-x-auto rounded-2xl mt-2"
+        className="flex-1 h-full overflow-x-auto overflow-y-hidden flex snap-x snap-mandatory scroll-smooth scrollbar-none"
       >
-        <div className="flex">
-          {pathImages.map((path) => (
-            <img key={path} className="w-full" src={path} alt="" />
-          ))}
-        </div>
+        {pathImages.map((path) => (
+          <div
+            key={path}
+            className="w-full h-full shrink-0 flex items-center justify-center snap-center"
+          >
+            <img
+              src={path}
+              alt=""
+              className="max-w-full max-h-full object-contain"
+            />
+          </div>
+        ))}
       </div>
-      <CarouselControl callback={handleNext} />
+
+      <CarouselControl direction="next" callback={handleNext} />
     </div>
   );
 }

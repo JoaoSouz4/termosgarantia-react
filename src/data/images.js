@@ -6,7 +6,7 @@ import toqueFantasma from "../assets/toqueFantasma.png";
 import semTouch from "../assets/semTouch.png";
 
 export const images = {
-  screen: [brokenScreen],
+  screen: [brokenScreen, scratchedScreen],
   stripingScreen: [stripingScreen1],
   spottedScreen: [spottedScreen1],
   toqueFantasma: [toqueFantasma],

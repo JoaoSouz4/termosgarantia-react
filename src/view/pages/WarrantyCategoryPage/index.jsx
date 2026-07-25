@@ -18,7 +18,9 @@ export function WarrantyCategoryPage({ warrantyExclusions, warrantyCoverage }) {
 
   return (
     <div className="m-5">
-      <Toogle onToogle={handleToogle} />
+      <div className="md:flex md:justify-center">
+        <Toogle onToogle={handleToogle} />
+      </div>
       {content.data.map(({ id, title, description, tags, images }) => (
         <WarrantyExclusion
           key={id}
