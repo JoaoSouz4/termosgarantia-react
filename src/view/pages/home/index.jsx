@@ -41,7 +41,7 @@ export function Home() {
                 imagePath={normalScreen3}
               />
               <ServiceCard
-                path={"/screen"}
+                path={"/battery"}
                 serviceName={"Troca da bateria"}
                 imagePath={battery}
                 description={

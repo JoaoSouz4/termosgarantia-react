@@ -11,14 +11,16 @@ export function Toogle({ onToogle }) {
   }
 
   return (
-    <div className="flex justify-between items-center gap-2 shadow-md shadow-blue-950/5  rounded-2xl bg-white px-5 py-4 md:w-1/2">
-      <h1 className="font-bold text-md ml-2">
-        {active ? (
-          <div>Passa na garantia</div>
-        ) : (
-          <div>Não passa na garantia </div>
-        )}
-      </h1>
+    <div className="flex justify-between items-center gap-2 shadow-md shadow-blue-950/5  rounded-2xl bg-white px-5 py-4 ">
+      <div>
+        <h1 className="font-bold text-md ml-2">
+          {active ? (
+            <div>Passa na garantia</div>
+          ) : (
+            <div>Não passa na garantia </div>
+          )}
+        </h1>
+      </div>
       <div
         className={`rounded-full w-15 relative shadow-inner ${active ? `bg-green-100 shadow-green-300` : ` shadow-red-300 bg-red-100`}`}
       >

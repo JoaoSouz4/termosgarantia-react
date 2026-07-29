@@ -25,6 +25,16 @@ export const warrantyCategories = [
         `,
         images: images.semTouch,
       },
+      {
+        id: 3,
+        title: "Tela piscando",
+        keyword: "quebrado",
+        tags: ["tela apagando", "imagem tremula"],
+        description: `
+        Quando a tela apresenta oscilações de brilho ou piscadas sem qualquer sinal de queda, pressão, contato com líquido ou outros danos físicos, o problema pode estar relacionado a um defeito de fabricação no painel ou em seus componentes internos, sendo passível de garantia..
+        `,
+        images: images.telapiscando,
+      },
     ],
     exclusions: [
       {
@@ -84,7 +94,55 @@ export const warrantyCategories = [
         description: `
         A tela apagada, mesmo com o aparelho ligado, normalmente indica dano interno ao display. Esse tipo de defeito é causado, na maioria dos casos, por impactos, pressão ou contato com líquidos, caracterizando uma avaria física na peça. Por esse motivo, não está coberto pela garantia, que se aplica apenas a defeitos de fabricação ou de instalação.
         `,
-        images: images.spottedScreen,
+        images: images.telaapagada,
+      },
+    ],
+  },
+  {
+    type: "Bateria",
+    path: "/battery",
+    coverage: [
+      {
+        id: 1,
+        title: "Descarregando rápido",
+        keyword: "quebrado",
+        tags: ["saúde baixa", "baixo desempenho"],
+        description: `
+        Uma bateria que descarrega rapidamente, sem sinais de mau uso, superaquecimento, contato com líquidos ou desgaste natural, pode indicar um defeito de fabricação na própria peça. Quando, após a análise técnica, for constatado que a perda excessiva de autonomia é causada por uma falha da bateria instalada e não por fatores externos ou pelo aparelho, o problema é coberto pela garantia.
+        `,
+        images: images.descarregandorapido,
+      },
+      {
+        id: 2,
+        title: "Não carrega",
+        keyword: "sem carregamento, carregamento lento",
+        tags: ["sem carregamento, carregamento lento"],
+        description: `
+        Quando a bateria apresenta autonomia muito abaixo do esperado sem sinais de mau uso, impacto, contato com líquidos ou alterações no aparelho, o problema pode indicar um defeito de fabricação da bateria, sendo passível de garantia.
+        `,
+        images: images.naocarrega,
+      },
+    ],
+    exclusions: [
+      {
+        id: 1,
+        title: "Bateria danificada",
+        keyword: "quebrado",
+        tags: ["marcas de queda", "rasgada"],
+        description: `
+        Impactos podem danificar internamente as células e os componentes da bateria, comprometendo seu funcionamento. Por isso, baterias com sinais de queda ou impacto não são cobertas pela garantia, pois o defeito pode ter sido causado por dano acidental..
+        `,
+        images: images.bateriadanificada,
+      },
+      {
+        id: 2,
+        title: "Bateria molhada",
+        keyword: "quebrado",
+        tags: ["oxidações", "água", "ferrugem"],
+        description: `
+        Bateria com sinais de líquido (ferrugem ou oxidação): A presença de ferrugem ou oxidação indica contato com líquidos ou umidade, o que pode causar danos aos componentes internos da bateria. Por esse motivo, esse tipo de dano não é considerado defeito de fabricação e não é coberto pela garantia.
+        `,
+        images: images.bateriamolhada,
       },
     ],
   },

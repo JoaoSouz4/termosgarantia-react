@@ -4,6 +4,12 @@ import stripingScreen1 from "../assets/stripingScreen1.png";
 import spottedScreen1 from "../assets/spottedScreen1.png";
 import toqueFantasma from "../assets/toqueFantasma.png";
 import semTouch from "../assets/semTouch.png";
+import telapiscando from "../assets/telapiscando.png";
+import telaapagada from "../assets/telaapagada.png";
+import descarregandorapido from "../assets/descarregandorapido.png";
+import naocarrega from "../assets/naocarrega.png";
+import bateriadanificada from "../assets/bateriadanificada.png";
+import bateriamolhada from "../assets/bateriamolhada.png";
 
 export const images = {
   screen: [brokenScreen, scratchedScreen],
@@ -11,4 +17,10 @@ export const images = {
   spottedScreen: [spottedScreen1],
   toqueFantasma: [toqueFantasma],
   semTouch: [semTouch],
+  telapiscando: [telapiscando],
+  telaapagada: [telaapagada],
+  descarregandorapido: [descarregandorapido],
+  naocarrega: [naocarrega],
+  bateriadanificada: [bateriadanificada],
+  bateriamolhada: [bateriamolhada],
 };
