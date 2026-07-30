@@ -11,9 +11,9 @@ export function Toogle({ onToogle }) {
   }
 
   return (
-    <div className="flex justify-between items-center gap-2 shadow-md shadow-blue-950/5  rounded-2xl bg-white px-5 py-4 ">
+    <div className="grow flex justify-between items-center gap-2 shadow-md shadow-blue-950/5  rounded-2xl bg-white px-5 py-4 ">
       <div>
-        <h1 className="font-bold text-md ml-2">
+        <h1 className="font-bold text-sm ml-2 ">
           {active ? (
             <div>Passa na garantia</div>
           ) : (

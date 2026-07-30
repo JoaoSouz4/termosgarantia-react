@@ -146,4 +146,88 @@ export const warrantyCategories = [
       },
     ],
   },
+  {
+    type: "Conector",
+    path: "/conector",
+    coverage: [
+      {
+        id: 1,
+        title: "Parou de carregar (sem avarias)",
+        keyword: "quebrado",
+        tags: ["parou do nada", "sem sinal de carregamento"],
+        description: `
+        Quando o aparelho deixa de carregar e a placa de carga não apresenta sinais de impacto, oxidação, ferrugem, conector quebrado ou qualquer outro dano físico, o defeito pode estar relacionado a uma falha de fabricação do componente ou da instalação realizada. Nesses casos, após análise técnica, o problema é coberto pela garantia, pois caracteriza uma possível falha da peça ou do serviço prestado.
+        `,
+        images: images.naocarrega2,
+      },
+      {
+        id: 2,
+        title: "Problemas com wifi (placa de carga)",
+        keyword: "sem wifi",
+        tags: ["wifi lento", "sem rede movel", "sem wifi", "sem gps"],
+        description: `
+        Wi-Fi sem funcionamento: Em muitos aparelhos Android, a placa de carga também possui contatos e conexões responsáveis pela comunicação com as antenas de sinal (Wi-Fi, Bluetooth, rede móvel e GPS). Se, após a substituição da peça, o Wi-Fi deixar de funcionar sem que haja sinais de impacto, oxidação, instalação incorreta ou danos ao aparelho, o problema pode indicar um defeito de fabricação na placa de carga ou em seus componentes, sendo passível de garantia.
+        `,
+        images: images.naopegawifi,
+      },
+      {
+        id: 3,
+        title: "Problemas com chip(placa de carga)",
+        keyword: "sem sinal de chip",
+        tags: ["sem sinal de chip"],
+        description: `
+        Chip (SIM) sem funcionamento: Em alguns modelos de celulares, a placa de carga também abriga o leitor do chip (SIM). Se, após a substituição da peça, o aparelho deixar de reconhecer o chip e não houver sinais de impacto, oxidação, danos ao conector ou instalação inadequada, o problema pode estar relacionado a um defeito de fabricação no leitor SIM ou em seus componentes, sendo passível de garantia.
+        `,
+        images: images.naopegachip,
+      },
+      {
+        id: 4,
+        title: "Problemas no aúdio",
+        keyword: "audio geral",
+        tags: ["auto falante", "audio geral"],
+        description: `
+        Em diversos smartphones Android, a placa de carga também faz parte do circuito responsável pela comunicação de componentes de áudio. Por isso, caso o aparelho apresente falha no áudio após a troca da placa de carga e não existam sinais de danos físicos ou contato com líquidos, o defeito pode estar relacionado à peça instalada, sendo coberto pela garantia após confirmação da análise técnica.
+        `,
+        images: images.naosaiaudio,
+      },
+      {
+        id: 5,
+        title: "Carregamento lento",
+        keyword: "audio geral",
+        tags: [
+          "Carregamento lento",
+          "demora para carregar",
+          "carrega devagar",
+          "carga lenta",
+          "baixa velocidade de carregamento",
+        ],
+        description: `
+        Quando o aparelho passa a carregar lentamente, sem apresentar sinais de oxidação, ferrugem, conector quebrado, impactos ou outros danos físicos, o problema pode estar relacionado a um defeito de fabricação da placa de carga. Uma falha em seus componentes eletrônicos pode impedir o fornecimento correto de energia para a bateria, reduzindo a velocidade de carregamento. Nesses casos, após análise técnica, o defeito é coberto pela garantia, por se tratar de uma possível falha da peça instalada.
+        `,
+        images: images.naocarrega2,
+      },
+    ],
+    exclusions: [
+      {
+        id: 1,
+        title: "Conector quebrado",
+        keyword: "quebrado",
+        tags: ["faltando peça", "danificado"],
+        description: `
+        O conector é uma parte sensível da bateria e pode ser danificado durante manuseio, instalação ou por esforço mecânico. Como esse tipo de dano não ocorre por defeito de fabricação, baterias com conector quebrado não são cobertas pela garantia.
+        `,
+        images: images.conectorquebrado,
+      },
+      {
+        id: 2,
+        title: "Placa de carga oxidada",
+        keyword: "quebrado",
+        tags: ["oxidações", "água", "ferrugem"],
+        description: `
+        Placa de carga com oxidação ou ferrugem: A presença de oxidação ou ferrugem indica contato com líquidos ou umidade, o que pode comprometer o funcionamento dos componentes da placa. Como esse tipo de dano é causado por fatores externos, não é considerado defeito de fabricação e não é coberto pela garantia.
+        `,
+        images: images.placadecargaoxidada,
+      },
+    ],
+  },
 ];

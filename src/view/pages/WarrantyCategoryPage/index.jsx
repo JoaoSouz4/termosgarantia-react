@@ -28,10 +28,10 @@ export function WarrantyCategoryPage({ warrantyExclusions, warrantyCoverage }) {
         >
           <IoArrowBackOutline />
         </div>
-        <div className="md:flex md:justify-center">
-          <Toogle onToogle={handleToogle} />
-        </div>
+
+        <Toogle onToogle={handleToogle} />
       </div>
+
       {content.data.map(({ id, title, description, tags, images }) => (
         <WarrantyExclusion
           key={id}

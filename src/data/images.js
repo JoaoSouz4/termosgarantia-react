@@ -10,6 +10,12 @@ import descarregandorapido from "../assets/descarregandorapido.png";
 import naocarrega from "../assets/naocarrega.png";
 import bateriadanificada from "../assets/bateriadanificada.png";
 import bateriamolhada from "../assets/bateriamolhada.png";
+import conectorquebrado from "../assets/conectorquebrado.png";
+import placadecargaoxidada from "../assets/placadecargaoxidada.png";
+import naocarrega2 from "../assets/naocarrega2.png";
+import naopegawifi from "../assets/naopegawifi.png";
+import naopegachip from "../assets/naopegachip.png";
+import naosaiaudio from "../assets/naosaiaudio.png";
 
 export const images = {
   screen: [brokenScreen, scratchedScreen],
@@ -21,6 +27,12 @@ export const images = {
   telaapagada: [telaapagada],
   descarregandorapido: [descarregandorapido],
   naocarrega: [naocarrega],
+  naocarrega2: [naocarrega2],
   bateriadanificada: [bateriadanificada],
   bateriamolhada: [bateriamolhada],
+  conectorquebrado: [conectorquebrado],
+  placadecargaoxidada: [placadecargaoxidada],
+  naopegawifi: [naopegawifi],
+  naopegachip: [naopegachip],
+  naosaiaudio: [naosaiaudio],
 };

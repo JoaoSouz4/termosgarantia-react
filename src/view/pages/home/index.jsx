@@ -50,7 +50,7 @@ export function Home() {
               />
 
               <ServiceCard
-                path={"/screen"}
+                path={"/conector"}
                 serviceName={"Troca do conector"}
                 imagePath={conector}
                 description={
