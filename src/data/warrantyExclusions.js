@@ -96,6 +96,23 @@ export const warrantyCategories = [
         `,
         images: images.telaapagada,
       },
+      {
+        id: 5,
+        title: "Touch travado após atualização",
+        keyword: "Manchas",
+        tags: [
+          "Touch travado após atualização",
+          "touch parou após atualizar",
+          "touch travado",
+          "atualização de sistema",
+          "atualização do Android",
+          "incompatibilidade de sistema",
+        ],
+        description: `
+        A garantia não cobre falhas de touch causadas por atualizações de sistema operacional. Em alguns casos, uma atualização pode gerar incompatibilidades de software, conflitos entre o sistema e o hardware ou até mesmo falhas temporárias no funcionamento da tela. Como esse tipo de problema não está relacionado à peça instalada nem ao serviço realizado, ele não é considerado um defeito de fabricação e, por isso, não é coberto pela garantia.
+        `,
+        images: images.telaapagada,
+      },
     ],
   },
   {
@@ -227,6 +244,53 @@ export const warrantyCategories = [
         Placa de carga com oxidação ou ferrugem: A presença de oxidação ou ferrugem indica contato com líquidos ou umidade, o que pode comprometer o funcionamento dos componentes da placa. Como esse tipo de dano é causado por fatores externos, não é considerado defeito de fabricação e não é coberto pela garantia.
         `,
         images: images.placadecargaoxidada,
+      },
+    ],
+  },
+  {
+    type: "Placa",
+    path: "/placa",
+    coverage: [
+      {
+        id: 1,
+        title: "Quando o problema ainda persiste",
+        keyword: "quebrado",
+        tags: [
+          "Mesmo defeito",
+          "defeito persistente",
+          "problema continua",
+          "garantia cobre",
+          "sem marcas de queda",
+          "sem oxidação",
+          "sem ferrugem",
+          "sem contato com líquidos",
+          "sem danos físicos",
+          "falha da peça",
+          "falha no reparo",
+        ],
+        description: `
+        Se o defeito apresentado após o reparo for o mesmo que motivou o serviço e, durante a análise técnica, não forem encontrados sinais de queda, impactos, contato com líquidos, ferrugem, oxidação ou qualquer outro dano externo, o reparo será realizado em garantia. Nesses casos, o problema pode estar relacionado a uma falha do serviço executado ou da peça utilizada, estando coberto pela garantia.
+        `,
+        images: images.descarregandorapido,
+      },
+    ],
+    exclusions: [
+      {
+        id: 1,
+        title: "Danos da placa",
+        keyword: "quebrado",
+        tags: [
+          "Marcas de queda",
+          "placa amassada",
+          "placa empenada",
+          "placa trincada",
+          "dano por impacto",
+          "amassado na placa",
+        ],
+        description: `
+        A garantia do reparo em placa cobre apenas o defeito originalmente corrigido e possíveis falhas relacionadas ao serviço realizado. Caso a placa apresente sinais de queda, impactos, amassados, trincas ou outras avarias físicas, a garantia é automaticamente invalidada, pois esses danos podem causar novos defeitos ou comprometer circuitos que não possuem relação com o reparo anterior.
+        `,
+        images: images.descarregandorapido,
       },
     ],
   },

@@ -58,7 +58,7 @@ export function Home() {
                 }
               />
               <ServiceCard
-                path={"/screen"}
+                path={"/placa"}
                 serviceName={"Reparos na placa"}
                 imagePath={placa}
                 description={
