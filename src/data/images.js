@@ -16,6 +16,9 @@ import naocarrega2 from "../assets/naocarrega2.png";
 import naopegawifi from "../assets/naopegawifi.png";
 import naopegachip from "../assets/naopegachip.png";
 import naosaiaudio from "../assets/naosaiaudio.png";
+import placaprincipaloxidada from "../assets/placaprincipaloxidada.png";
+import placaprincipalamassada from "../assets/placaprincipalamassada.png";
+import bhsad from "../assets/bhsad.png";
 
 export const images = {
   screen: [brokenScreen, scratchedScreen],
@@ -35,4 +38,6 @@ export const images = {
   naopegawifi: [naopegawifi],
   naopegachip: [naopegachip],
   naosaiaudio: [naosaiaudio],
+  mainboardbroken: [placaprincipaloxidada, placaprincipalamassada],
+  bhsad: [bhsad],
 };

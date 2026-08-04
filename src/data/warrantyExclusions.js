@@ -271,7 +271,7 @@ export const warrantyCategories = [
         description: `
         Se o defeito apresentado após o reparo for o mesmo que motivou o serviço e, durante a análise técnica, não forem encontrados sinais de queda, impactos, contato com líquidos, ferrugem, oxidação ou qualquer outro dano externo, o reparo será realizado em garantia. Nesses casos, o problema pode estar relacionado a uma falha do serviço executado ou da peça utilizada, estando coberto pela garantia.
         `,
-        images: images.descarregandorapido,
+        images: images.bhsad,
       },
     ],
     exclusions: [
@@ -290,7 +290,7 @@ export const warrantyCategories = [
         description: `
         A garantia do reparo em placa cobre apenas o defeito originalmente corrigido e possíveis falhas relacionadas ao serviço realizado. Caso a placa apresente sinais de queda, impactos, amassados, trincas ou outras avarias físicas, a garantia é automaticamente invalidada, pois esses danos podem causar novos defeitos ou comprometer circuitos que não possuem relação com o reparo anterior.
         `,
-        images: images.descarregandorapido,
+        images: images.mainboardbroken,
       },
     ],
   },
