@@ -12,16 +12,18 @@ export function Home() {
     <div className="mb-8">
       <section>
         <div className="md:flex">
-          <div className="flex flex-col gap-2 rounded-2xl p-4 shadow-xl bg-white mx-6 md:w-1/2">
-            <h1 className="text-xl font-bold flex items-center gap-2 mt-2">
-              <FaCheckSquare className="text-blue-400" />
-              Guia da garantia BH
-            </h1>
-            <p className="text-sm  text-gray-600 mt-2 mb-4">
-              Saiba o que passa e o que <strong>não passa</strong> na garantia
-              de 3(três) meses que oferecemos aos nossos clientes que fazem
-              serviços conosco.
-            </p>
+          <div className="flex flex-col gap-2 rounded-2xl p-4 shadow-md bg-white mx-6 md:w-1/2">
+            <div className="">
+              <h1 className="text-xl font-bold flex items-center gap-2 mt-2">
+                <FaCheckSquare className="text-blue-400" />
+                Guia da garantia
+              </h1>
+              <p className="text-sm  text-gray-600 mt-2 mb-4">
+                Saiba o que passa e o que <strong>não passa</strong> na garantia
+                de 3(três) meses que oferecemos aos nossos clientes que fazem
+                serviços conosco.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -98,10 +100,10 @@ export function Home() {
         </div>
         <p className="text-gray-700 mt-4">
           Nem todo defeito é coberto pela garantia, mas isso não significa que
-          você ficará sem suporte. Fale com a nossa equipe. Sempre analisamos
-          cada caso com transparência e buscamos a solução mais econômica
-          possível para os nossos clientes. A honestidade e a confiança fazem
-          toda a diferença nesse processo.
+          você ficará sem suporte. Entre em contato com a assistência técnica.
+          Sempre analisamos cada caso com transparência e buscamos a solução
+          mais econômica possível para os nossos clientes. A honestidade e a
+          confiança fazem toda a diferença nesse processo.
         </p>
       </section>
     </div>

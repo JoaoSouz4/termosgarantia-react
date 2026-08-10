@@ -9,12 +9,12 @@ export function ServiceCard({
 }) {
   return (
     <Link to={path} className="shrink-0 w-2/3 md:w-full md:mb-6 pr-6">
-      <div className="shadow-md w-full rounded-xl">
+      <div className="flex flex-col shadow-md w-full rounded-xl">
         <img
           src={imagePath}
           className="max-w-full object-contain rounded-xl  rounded-b-none"
         />
-        <div className="p-4 bg-white rounded-xl">
+        <div className="p-4 bg-white rounded-xl h-55">
           <label className="flex justify-start font-bold text-lg text-gray-700">
             <div className="flex flex-col">
               {serviceName}
