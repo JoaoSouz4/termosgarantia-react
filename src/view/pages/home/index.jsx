@@ -2,10 +2,10 @@ import { FaCheckSquare } from "react-icons/fa";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { IoMdSettings } from "react-icons/io";
 import { ServiceCard } from "./card";
-import normalScreen3 from "../../../assets/normalScreen3.png";
+import normalScreen3 from "../../../assets/normalScreen3.webp";
 import battery from "../../../assets/battery.webp";
 import conector from "../../../assets/conector.webp";
-import placa from "../../../assets/placa.png";
+import placa from "../../../assets/placa.webp";
 
 export function Home() {
   return (
