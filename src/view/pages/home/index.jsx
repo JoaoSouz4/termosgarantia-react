@@ -3,8 +3,8 @@ import { IoIosPhonePortrait } from "react-icons/io";
 import { IoMdSettings } from "react-icons/io";
 import { ServiceCard } from "./card";
 import normalScreen3 from "../../../assets/normalScreen3.png";
-import battery from "../../../assets/battery.png";
-import conector from "../../../assets/conector.png";
+import battery from "../../../assets/battery.webp";
+import conector from "../../../assets/conector.webp";
 import placa from "../../../assets/placa.png";
 
 export function Home() {
