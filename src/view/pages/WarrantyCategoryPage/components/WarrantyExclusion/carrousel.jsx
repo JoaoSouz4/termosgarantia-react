@@ -34,6 +34,7 @@ export function Carrousel({ pathImages }) {
             <img
               src={path}
               alt=""
+              loading="lazy"
               className="max-w-full max-h-full object-contain"
             />
           </div>

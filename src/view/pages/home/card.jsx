@@ -12,6 +12,7 @@ export function ServiceCard({
       <div className="flex flex-col shadow-md w-full rounded-xl">
         <img
           src={imagePath}
+          loading="lazy"
           className="max-w-full object-contain rounded-xl  rounded-b-none"
         />
         <div className="p-4 bg-white rounded-xl h-55">
