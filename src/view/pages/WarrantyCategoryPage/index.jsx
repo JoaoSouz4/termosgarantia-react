@@ -21,10 +21,10 @@ export function WarrantyCategoryPage({ warrantyExclusions, warrantyCoverage }) {
 
   return (
     <div className="m-5">
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2">
         <div
           onClick={() => navigate(-1)}
-          className="border rounded-2xl border-gray-200 text-gray-500 w-14 flex items-center justify-center text-xs"
+          className="border rounded-2xl border-gray-200 text-gray-500  flex items-center justify-center text-xs h-10 w-10"
         >
           <IoArrowBackOutline />
         </div>

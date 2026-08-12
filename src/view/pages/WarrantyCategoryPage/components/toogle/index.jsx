@@ -15,9 +15,9 @@ export function Toogle({ onToogle }) {
       <div>
         <h1 className="font-bold text-sm ml-2 ">
           {active ? (
-            <div>Passa na garantia</div>
+            <div className="text-green-600">Passa na garantia</div>
           ) : (
-            <div>Não passa na garantia </div>
+            <div className="text-red-700">Garantia não cobre</div>
           )}
         </h1>
       </div>
