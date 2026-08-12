@@ -6,6 +6,7 @@ import normalScreen3 from "../../../assets/normalScreen3.webp";
 import battery from "../../../assets/battery.webp";
 import conector from "../../../assets/conector.webp";
 import placa from "../../../assets/placa.webp";
+import { TiWarningOutline } from "react-icons/ti";
 
 export function Home() {
   return (
@@ -75,7 +76,8 @@ export function Home() {
       <section className="p-6">
         <div className="">
           <div className="flex flex-col">
-            <h1 className="text-xl font-bold text-gray-800">
+            <h1 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+              <TiWarningOutline />
               Observações importantes*
             </h1>
             <span className="w-1/2 h-0.5 mt-1 bg-amber-300" />

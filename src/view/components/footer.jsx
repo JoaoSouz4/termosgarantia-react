@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="m-4 my-12 border-t border-slate-200 pt-8">
       <div className="text-center  text-slate-400 mb-2 text-sm">
-        BH Assistência técnica - PVH (RO)
+        Desenvolvido por: BH Peças - PVH (RO)
       </div>
       <div className="text-slate-400 text-sm text-center">
         <div>Avenida calama 5863</div>

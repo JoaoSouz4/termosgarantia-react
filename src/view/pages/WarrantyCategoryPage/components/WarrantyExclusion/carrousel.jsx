@@ -29,7 +29,7 @@ export function Carrousel({ pathImages }) {
         {pathImages.map((path) => (
           <div
             key={path}
-            className="w-full h-full shrink-0 flex items-center justify-center snap-center"
+            className="w-full shrink-0 flex items-center justify-center snap-center"
           >
             <img
               src={path}
