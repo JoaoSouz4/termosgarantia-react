@@ -1,12 +1,11 @@
 import { FaCheckSquare } from "react-icons/fa";
-import { IoIosPhonePortrait } from "react-icons/io";
-import { IoMdSettings } from "react-icons/io";
 import { ServiceCard } from "./card";
 import normalScreen3 from "../../../assets/normalScreen3.webp";
 import battery from "../../../assets/battery.webp";
 import conector from "../../../assets/conector.webp";
 import placa from "../../../assets/placa.webp";
 import { TiWarningOutline } from "react-icons/ti";
+import { BonusContent } from "./bonusContent";
 
 export function Home() {
   return (
@@ -29,10 +28,6 @@ export function Home() {
         </div>
 
         <div className="mt-6">
-          <div className="text-4xl gap-2 flex justify-center">
-            <h2 className="flex items-center gap-2"></h2>
-          </div>
-
           <div className="overflow-x-auto scrollbar-none">
             <div className="flex pb-2 pl-6 md:grid grid-cols-3">
               <ServiceCard
@@ -70,6 +65,8 @@ export function Home() {
               />
             </div>
           </div>
+
+          <BonusContent />
         </div>
       </section>
 

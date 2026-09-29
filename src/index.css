@@ -3,6 +3,7 @@
 
 @theme {
   --font-inter: "Inter", sans-serif;
+  --color-background: #f8fafc;
 }
 
 body {

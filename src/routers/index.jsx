@@ -3,6 +3,7 @@ import { Layout } from "../view/layout";
 import { WarrantyCategoryPage } from "../view/pages/WarrantyCategoryPage";
 import { Home } from "../view/pages/home";
 import { warrantyCategories } from "../data/warrantyExclusions";
+import { Bonus1 } from "../view/pages/bonus1";
 
 export function Router() {
   return (
@@ -22,6 +23,8 @@ export function Router() {
               }
             />
           ))}
+
+          <Route path="/bonus1" element={<Bonus1 />} />
         </Route>
       </Routes>
     </BrowserRouter>
