@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LuArrowUpRight } from "react-icons/lu";
+import { Illustration } from "../../../illustrations";
 
 /**
  * Grade editorial assimétrica:
@@ -23,15 +24,12 @@ export function ServiceCard({ category, index = 0, featured = false }) {
           featured ? "aspect-4/3 lg:aspect-auto lg:grow" : "aspect-16/9 lg:aspect-auto lg:w-[42%]"
         }`}
       >
-        <img
-          src={cover}
-          alt=""
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
+        <Illustration
+          id={cover}
+          fit="cover"
+          className="absolute inset-0 h-full w-full transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
         />
-        {featured && (
-          <div className="absolute inset-0 bg-linear-to-t from-panel via-transparent to-transparent" />
-        )}
+        {featured && <div className="absolute inset-0 bg-linear-to-t from-panel via-transparent to-transparent" />}
         <span className="absolute left-3 top-3 rounded-full bg-black/50 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white backdrop-blur-md">
           {code} · {String(index + 1).padStart(2, "0")}
         </span>
@@ -41,7 +39,7 @@ export function ServiceCard({ category, index = 0, featured = false }) {
         <div className="flex items-start justify-between gap-4">
           <h3
             className={`font-display font-semibold leading-tight tracking-tight text-ink ${
-              featured ? "text-3xl md:text-4xl" : "text-xl"
+              featured ? "text-2xl md:text-4xl" : "text-xl"
             }`}
           >
             {title}
@@ -50,9 +48,7 @@ export function ServiceCard({ category, index = 0, featured = false }) {
             <LuArrowUpRight aria-hidden />
           </span>
         </div>
-        <p className={`mt-3 grow text-sm leading-relaxed text-ink-2 ${featured ? "max-w-md md:text-base" : ""}`}>
-          {summary}
-        </p>
+        <p className={`mt-3 grow text-sm leading-relaxed text-ink-2 ${featured ? "max-w-md md:text-base" : ""}`}>{summary}</p>
         <div className="mt-5 flex gap-4 font-mono text-[11px] uppercase tracking-[0.14em]">
           <span className="flex items-center gap-1.5 text-ok">
             <span className="h-1.5 w-1.5 rounded-full bg-ok" />

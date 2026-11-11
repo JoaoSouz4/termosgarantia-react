@@ -1,26 +1,14 @@
 import { Component, lazy, Suspense, useEffect, useRef, useState } from "react";
-import normalScreen3 from "../../../../assets/normalScreen3.webp";
+import { Illustration } from "../../../../illustrations";
+import { deviceTier, hasWebGL } from "../../../../utils/device";
 
 const Workshop = lazy(() => import("./Workshop"));
 
-function hasWebGL() {
-  try {
-    const c = document.createElement("canvas");
-    return !!(c.getContext("webgl2") || c.getContext("webgl"));
-  } catch {
-    return false;
-  }
-}
-
-/** Alternativa visual sem WebGL (ou se a cena falhar). */
+/** Alternativa sem WebGL (ou se a cena falhar). */
 function Fallback() {
   return (
-    <div className="flex h-full w-full items-center justify-center p-8">
-      <img
-        src={normalScreen3}
-        alt=""
-        className="max-h-[70%] w-auto max-w-full rounded-[28px] object-cover shadow-2xl ring-1 ring-white/10"
-      />
+    <div className="flex h-full w-full items-end justify-center p-4 md:items-center md:p-8">
+      <Illustration id="cover-screen" className="max-h-full w-full max-w-md rounded-[28px] shadow-2xl ring-1 ring-white/10" />
     </div>
   );
 }
@@ -28,7 +16,7 @@ function Fallback() {
 function Loading() {
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <div className="h-40 w-40 animate-pulse rounded-full bg-brand/25 blur-3xl" />
+      <div className="h-32 w-32 animate-pulse rounded-full bg-brand/25 blur-3xl" />
     </div>
   );
 }
@@ -46,14 +34,13 @@ class SceneBoundary extends Component {
 export function WorkshopStage({ progress, reducedMotion }) {
   const ref = useRef(null);
   const [supported] = useState(hasWebGL);
+  const [tier] = useState(deviceTier);
   const [inView, setInView] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), {
-      threshold: 0.01,
-    });
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.01 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -63,11 +50,7 @@ export function WorkshopStage({ progress, reducedMotion }) {
       {supported ? (
         <SceneBoundary>
           <Suspense fallback={<Loading />}>
-            <Workshop
-              progress={progress}
-              active={inView}
-              reducedMotion={reducedMotion}
-            />
+            <Workshop progress={progress} active={inView} reducedMotion={reducedMotion} tier={tier} />
           </Suspense>
         </SceneBoundary>
       ) : (

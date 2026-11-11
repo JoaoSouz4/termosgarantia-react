@@ -44,15 +44,15 @@ export function Home() {
       <Hero />
 
       {/* A próxima seção sobe por cima do herói: transição em camadas */}
-      <div className="relative z-10 -mt-[14vh] rounded-t-[40px] border-t border-line bg-bg md:rounded-t-[56px]">
-        <section id="servicos" className="mx-auto max-w-6xl scroll-mt-28 px-4 pt-16 md:px-6 md:pt-24">
+      <div className="relative z-10 rounded-t-[32px] border-t border-line bg-bg md:-mt-[14vh] md:rounded-t-[56px]">
+        <section id="servicos" className="mx-auto max-w-6xl scroll-mt-28 px-4 pt-14 md:px-6 md:pt-24">
           <SectionTitle
             index="01"
             eyebrow="Serviços"
             title="Qual reparo foi feito no seu aparelho?"
             text="Escolha o serviço para ver, caso a caso, o que a garantia cobre."
           />
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
+          <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-12">
             {warrantyCategories.map((category, i) => (
               <ServiceCard
                 key={category.path}
@@ -64,7 +64,7 @@ export function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-28 md:px-6 md:pt-36">
+        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
           <SectionTitle index="02" eyebrow="Como funciona" title="Três passos, sem letra miúda" />
           <ol className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
             <span
@@ -88,7 +88,7 @@ export function Home() {
           </ol>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-28 md:px-6 md:pt-36">
+        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
           <SectionTitle
             index="03"
             eyebrow="Cobertura"
@@ -145,11 +145,11 @@ export function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-28 md:px-6 md:pt-36">
+        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
           <BonusContent />
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-28 md:px-6 md:pt-36">
+        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
           <div
             data-reveal
             className="grain relative isolate overflow-hidden rounded-[32px] border border-line px-6 py-16 md:px-16 md:py-24"
@@ -191,7 +191,7 @@ function Hero() {
   return (
     <section
       ref={ref}
-      className="grain relative isolate h-svh min-h-[640px] w-full overflow-hidden"
+      className="grain relative isolate flex min-h-svh w-full flex-col overflow-hidden md:block md:h-svh md:min-h-160"
       style={{ "--p": 0 }}
     >
       {/* Camada 1 — fundo (mais lento) */}
@@ -207,39 +207,22 @@ function Hero() {
           <span className="m4" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_70%_55%,transparent,var(--bg)_85%)]" />
-        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,var(--ink)_1px,transparent_1px),linear-gradient(to_bottom,var(--ink)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(60%_60%_at_60%_50%,black,transparent)]" />
+        <div className="absolute inset-0 hidden opacity-[0.06] bg-[linear-gradient(to_right,var(--ink)_1px,transparent_1px),linear-gradient(to_bottom,var(--ink)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(60%_60%_at_60%_50%,black,transparent)] md:block" />
       </div>
 
-      {/* Camada 2 — personagem 3D (velocidade intermediária + profundidade na câmera) */}
+      {/* Camada 3 — conteúdo. No mobile vem primeiro, acima do personagem. */}
       <div
-        className="absolute inset-x-0 bottom-[10vh] -z-10 h-[56%] will-change-transform md:bottom-[12vh] md:left-[28%] md:right-0 md:top-0 md:h-auto"
-        style={{
-          transform: "translate3d(0, calc(var(--p) * -6%), 0)",
-          opacity: "calc(1 - var(--p) * 0.7)",
-          maskImage:
-            "linear-gradient(to right, transparent 0%, black 18%), linear-gradient(to top, transparent 0%, black 14%)",
-          maskComposite: "intersect",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 18%), linear-gradient(to top, transparent 0%, black 14%)",
-          WebkitMaskComposite: "source-in",
-        }}
-      >
-        <WorkshopStage progress={progress} reducedMotion={reduced} />
-      </div>
-
-      {/* Camada 3 — conteúdo (mais rápido, sai primeiro) */}
-      <div
-        className="relative mx-auto flex h-full max-w-6xl flex-col px-5 pt-28 md:justify-center md:px-6 md:pt-16"
+        className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-4 pt-24 md:flex md:h-full md:flex-col md:justify-center md:px-6 md:pb-0 md:pt-16"
         style={{
           transform: "translate3d(0, calc(var(--p) * -30%), 0)",
           opacity: "calc(1 - var(--p) * 1.8)",
         }}
       >
-        <div className="max-w-xl animate-fade-up">
+        <div className="mx-auto max-w-xl animate-fade-up text-center md:mx-0 md:text-left">
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-3">
             BH Assistência Técnica <span className="text-accent">/</span> Porto Velho
           </span>
-          <h1 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-[5.2rem]">
+          <h1 className="mt-4 font-display text-[2.5rem] font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl md:mt-5 lg:text-[5.2rem]">
             Garantia
             <br />
             sem letra
@@ -256,14 +239,14 @@ function Hero() {
               </svg>
             </span>
           </h1>
-          <p className="mt-7 max-w-md text-base leading-relaxed text-ink-2 md:text-lg">
+          <p className="mx-auto mt-6 max-w-md text-base md:mx-0 leading-relaxed text-ink-2 md:mt-7 md:text-lg">
             O que passa e o que não passa na garantia de 3 meses dos nossos
             serviços — explicado caso a caso, com exemplos.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center md:mt-8 md:justify-start">
             <a
               href="#servicos"
-              className="group inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-[15px] font-semibold text-bg transition-all hover:gap-3"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[15px] font-semibold text-bg transition-all hover:gap-3"
             >
               Ver serviços
               <LuArrowDown className="transition-transform group-hover:translate-y-0.5" aria-hidden />
@@ -273,6 +256,16 @@ function Hero() {
         </div>
       </div>
 
+      {/* Camada 2 — personagem 3D. Mobile: encostado na base da tela. Desktop: à direita, atrás do texto. */}
+      <div
+        className="stage relative mt-auto h-[46svh] min-h-72 w-full will-change-transform md:absolute md:bottom-[12vh] md:left-[28%] md:right-0 md:top-0 md:-z-10 md:mt-0 md:h-auto md:min-h-0"
+        style={{
+          transform: "translate3d(0, calc(var(--p) * -6%), 0)",
+          opacity: "calc(1 - var(--p) * 0.7)",
+        }}
+      >
+        <WorkshopStage progress={progress} reducedMotion={reduced} />
+      </div>
     </section>
   );
 }

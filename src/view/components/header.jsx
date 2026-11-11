@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { LuMoon, LuSun } from "react-icons/lu";
+import { LuBatteryCharging, LuCpu, LuMoon, LuSmartphone, LuSun, LuUsb } from "react-icons/lu";
 import logo from "../../assets/logo.webp";
 import { warrantyCategories } from "../../data/warrantyExclusions";
 import { useTheme } from "../../hooks/useTheme";
 import { LiquidGlass } from "./liquidGlass";
 import { WhatsAppButton } from "./whatsappButton";
+
+const navIcons = {
+  "/screen": LuSmartphone,
+  "/battery": LuBatteryCharging,
+  "/conector": LuUsb,
+  "/placa": LuCpu,
+};
 
 export function Header() {
   const { theme, toggle } = useTheme();
@@ -49,11 +56,15 @@ export function Header() {
               key={c.path}
               to={c.path}
               className={({ isActive }) =>
-                `rounded-full px-3 py-1.5 text-sm transition-colors ${
+                `flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors ${
                   isActive ? "bg-ink/10 text-ink" : "text-ink-2 hover:text-ink"
                 }`
               }
             >
+              {(() => {
+                const Icon = navIcons[c.path];
+                return Icon ? <Icon className="text-base" aria-hidden /> : null;
+              })()}
               {c.navLabel}
             </NavLink>
           ))}

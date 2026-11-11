@@ -15,9 +15,7 @@ export function Footer() {
       />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-deep">
-            <img src={logo} alt="BH Assistência Técnica" className="w-8" />
-          </span>
+          <img src={logo} alt="BH Assistência Técnica" className="w-14 invert dark:invert-0" />
           <p className="mt-6 max-w-xs font-display text-xl leading-snug text-ink">
             Transparência em cada reparo.
           </p>

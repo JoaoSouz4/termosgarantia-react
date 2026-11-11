@@ -5,6 +5,7 @@ import { WarrantyTabs } from "./components/tabs";
 import { WarrantyExclusion } from "./components/WarrantyExclusion";
 import { WhatsAppButton } from "../../components/whatsappButton";
 import { useReveal } from "../../../hooks/useMotion";
+import { Illustration } from "../../../illustrations";
 
 export function WarrantyCategoryPage({ category }) {
   const { title, intro, cover, coverage, exclusions, code, accent } = category;
@@ -66,11 +67,7 @@ export function WarrantyCategoryPage({ category }) {
             </dl>
           </div>
           <figure className="relative hidden md:block">
-            <img
-              src={cover}
-              alt=""
-              className="aspect-4/3 w-full rounded-[28px] object-cover shadow-2xl ring-1 ring-line"
-            />
+            <Illustration id={cover} fit="cover" className="aspect-4/3 w-full rounded-[28px] shadow-2xl ring-1 ring-line" />
             <figcaption className="absolute -bottom-3 left-6 rounded-full border border-line bg-bg px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-3">
               Serviço · {code}
             </figcaption>

@@ -19,7 +19,7 @@ export function Router() {
             />
           ))}
 
-          <Route path="/bonus1" element={<Bonus1 />} />
+          <Route path="/bonus1" element={<Bonus1 />} />
         </Route>
       </Routes>
     </BrowserRouter>
