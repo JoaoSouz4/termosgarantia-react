@@ -11,7 +11,6 @@ import naocarrega from "../assets/naocarrega.webp";
 import naocarrega2 from "../assets/naocarrega2.webp";
 
 import bateriadanificada from "../assets/bateriadanificada.webp";
-import battery from "../assets/battery.webp";
 import bateriamolhada from "../assets/bateriamolhada.webp";
 import conectorquebrado from "../assets/conectorquebrado.webp";
 import placadecargaoxidada from "../assets/placadecargaoxidada.webp";

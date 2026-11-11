@@ -18,4 +18,13 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // Cena 3D (React Three Fiber): a animação muta objetos Three.js por ref
+    // dentro do useFrame, fora do ciclo de render do React. É o padrão da lib.
+    files: ['src/view/pages/home/workshop/**/*.{js,jsx}'],
+    rules: {
+      'react-hooks/immutability': 'off',
+      'react-hooks/refs': 'off',
+    },
+  },
 ])

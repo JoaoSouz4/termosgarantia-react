@@ -15,12 +15,7 @@ export function Router() {
             <Route
               key={category.type}
               path={category.path}
-              element={
-                <WarrantyCategoryPage
-                  warrantyExclusions={category.exclusions}
-                  warrantyCoverage={category.coverage}
-                />
-              }
+              element={<WarrantyCategoryPage category={category} />}
             />
           ))}
 

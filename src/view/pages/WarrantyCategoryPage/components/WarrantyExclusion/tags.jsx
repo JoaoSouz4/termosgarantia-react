@@ -1,16 +1,16 @@
 export function Tags({ tags = [] }) {
+  if (!tags.length) return null;
+
   return (
-    <div className="text-xs text-yellow-600 flex flex-wrap gap-2  mt-2">
-      {tags.map((tag, i) => {
-        return (
-          <span
-            key={i}
-            className="border px-2 py-1 w-fit rounded-lg bg-yellow-200/20"
-          >
-            {tag}
-          </span>
-        );
-      })}
-    </div>
+    <ul aria-label="Também conhecido como" className="mt-4 flex flex-wrap gap-1.5">
+      {tags.map((tag) => (
+        <li
+          key={tag}
+          className="rounded-md border border-line bg-bg-2 px-2 py-1 font-mono text-[11px] text-ink-2"
+        >
+          {tag}
+        </li>
+      ))}
+    </ul>
   );
 }

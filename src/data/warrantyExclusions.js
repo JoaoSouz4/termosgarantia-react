@@ -1,38 +1,54 @@
 import { images } from "./images";
+import normalScreen3 from "../assets/normalScreen3.webp";
+import battery from "../assets/battery.webp";
+import conector from "../assets/conector.webp";
+import placa from "../assets/placa.webp";
 
+/*
+ * Cada categoria representa um serviço da assistência.
+ * - coverage:   situações que PASSAM na garantia
+ * - exclusions: situações que NÃO PASSAM na garantia
+ * Parágrafos da descrição são separados por uma linha em branco.
+ */
 export const warrantyCategories = [
   {
     type: "Tela",
     path: "/screen",
+    navLabel: "Tela",
+    code: "TL",
+    accent: "#4a7dff",
+    title: "Troca de tela",
+    cover: normalScreen3,
+    summary:
+      "Saiba quando a garantia da troca de tela é válida e quais sinais indicam dano externo, como quedas, pressão ou contato com líquidos.",
+    intro:
+      "A garantia da troca de tela cobre defeitos de fabricação do display e falhas na instalação. Danos causados depois do reparo — quedas, pressão, líquidos — não entram na cobertura. Veja abaixo os casos mais comuns.",
     coverage: [
       {
         id: 1,
         title: "Tela clicando sozinha",
-        keyword: "quebrado",
-        tags: ["toques fantasma", "abrindo aplicativos", "digitando"],
-        description: `
-        Toques fantasmas são caracterizados por comandos executados na tela sem qualquer interação do usuário. Quando não há sinais de impacto, pressão, contato com líquidos ou outros danos físicos, esse comportamento pode indicar uma falha no display ou na instalação da peça. Nesses casos, o defeito é coberto pela garantia, pois se trata de uma possível falha de fabricação ou do serviço realizado.
-        `,
+        tags: ["toque fantasma", "abre aplicativos sozinho", "digita sozinho"],
+        description: `A tela executa comandos por conta própria: abre aplicativos, digita ou rola a página sem que você encoste nela. Esse comportamento é conhecido como "toque fantasma".
+
+Se na análise técnica não forem encontrados sinais de queda, pressão ou contato com líquidos, o problema indica uma falha da peça ou da instalação. Nesse caso, a garantia cobre o reparo.`,
         images: images.toqueFantasma,
       },
       {
         id: 2,
         title: "Touch falhando",
-        keyword: "quebrado",
-        tags: ["regiões inativas", "tela travada", "sem touch", "não clica"],
-        description: `
-        Quando a tela deixa de responder ao toque sem apresentar sinais de impacto, pressão, contato com líquidos ou outros danos físicos, o problema pode indicar uma falha no display ou na instalação da peça. Nesses casos, o defeito é coberto pela garantia, pois caracteriza uma possível falha de fabricação ou do serviço realizado.
-        `,
+        tags: ["regiões sem toque", "tela não responde", "touch travado"],
+        description: `Algumas áreas da tela, ou a tela inteira, deixam de responder ao toque, mesmo com a imagem funcionando normalmente.
+
+Sem sinais de impacto, pressão ou líquidos, o defeito é tratado como falha de fabricação do display ou da instalação, e está coberto pela garantia.`,
         images: images.semTouch,
       },
       {
         id: 3,
         title: "Tela piscando",
-        keyword: "quebrado",
-        tags: ["tela apagando", "imagem tremula"],
-        description: `
-        Quando a tela apresenta oscilações de brilho ou piscadas sem qualquer sinal de queda, pressão, contato com líquido ou outros danos físicos, o problema pode estar relacionado a um defeito de fabricação no painel ou em seus componentes internos, sendo passível de garantia..
-        `,
+        tags: ["brilho oscilando", "imagem tremendo", "tela apagando e voltando"],
+        description: `O brilho oscila ou a imagem pisca sem motivo aparente.
+
+Quando não há marcas de queda, pressão ou contato com líquidos, a causa provável é um defeito de fabricação no painel ou em seus componentes internos — situação coberta pela garantia.`,
         images: images.telapiscando,
       },
     ],
@@ -40,77 +56,66 @@ export const warrantyCategories = [
       {
         id: 1,
         title: "Vidro da tela quebrado",
-        keyword: "quebrado",
         tags: [
           "trinco interno",
           "trinco externo",
-          "arranhado",
+          "arranhões",
           "aro quebrado",
-          "riscos",
           "marcas de pressão",
         ],
-        description: `
-        Caracteriza mau uso quando a tela apresenta trinco interno, trinco externo, arranhados, aro quebrado, marcas de pressão ou qualquer dano físico que comprometa sua estrutura. Mesmo que o aparelho continue ligando e funcionando normalmente, esses sinais indicam que a peça sofreu impacto ou pressão indevida, comprometendo sua integridade. Nesses casos, o fabricante/fornecedor não autoriza a substituição da peça em garantia, pois o dano é classificado como decorrente de mau uso.
-        `,
+        description: `Trincos (internos ou externos), arranhões profundos, aro quebrado e marcas de pressão mostram que a tela sofreu impacto ou força excessiva depois do reparo.
+
+Mesmo que o aparelho continue ligando e funcionando, a estrutura da peça foi comprometida. Por se tratar de dano físico, o fornecedor não autoriza a troca em garantia.`,
         images: images.screen,
       },
       {
         id: 2,
         title: "Listras na tela",
-        keyword: "Listras",
         tags: [
           "linha horizontal",
           "linha vertical",
           "linha colorida",
           "quadriculado",
         ],
-        description: `
-        A tela apresenta linhas horizontais, verticais, coloridas ou um efeito quadriculado. Esse defeito geralmente é causado por impacto, pressão ou falha no display, comprometendo a visualização da imagem. Na maioria dos casos, a solução é a substituição da tela.
-        `,
+        description: `Linhas horizontais, verticais ou coloridas e efeitos quadriculados costumam surgir depois de impacto ou pressão sobre o display, que danificam as conexões internas do painel.
+
+Como a causa é um dano externo, a garantia não cobre. Na maioria dos casos, a solução é uma nova troca de tela.`,
         images: images.stripingScreen,
       },
       {
         id: 3,
         title: "Manchas na tela",
-        keyword: "Manchas",
         tags: [
-          "Manchas escuras",
+          "manchas escuras",
           "pontos escuros",
           "manchas coloridas",
-          "manchas clara",
+          "manchas claras",
         ],
-        description: `
-        Manchas escuras, pontos escuros, manchas coloridas ou manchas claras na tela são características de um display danificado. Esses sinais normalmente surgem após quedas, impactos, pressão excessiva sobre a tela ou contato com líquidos, causando danos internos ao painel (LCD ou OLED). Com o tempo, essas manchas podem aumentar de tamanho, surgir em novos pontos da tela ou comprometer totalmente a imagem e o funcionamento do display.
+        description: `Manchas e pontos escuros, claros ou coloridos são sinais de que o painel (LCD ou OLED) foi danificado por dentro. Eles costumam aparecer depois de quedas, impactos, pressão sobre a tela ou contato com líquidos e, com o tempo, podem aumentar ou se espalhar até comprometer toda a imagem.
 
-        Esse tipo de defeito não é coberto pela garantia, pois é consequência de dano físico ou externo ocorrido após o reparo, e não de um defeito na peça instalada ou no serviço realizado. A garantia cobre apenas falhas de fabricação ou de instalação, não danos provocados por acidentes, pressão, infiltração de líquidos ou mau uso do aparelho.
-        `,
+Esse tipo de defeito não é coberto pela garantia, porque é consequência de dano físico ocorrido depois do reparo, e não de falha da peça instalada ou do serviço realizado.`,
         images: images.spottedScreen,
       },
       {
         id: 4,
         title: "Sem imagem",
-        keyword: "Manchas",
-        tags: ["liga e não da imagem", "só vibra", "Tela apagada"],
-        description: `
-        A tela apagada, mesmo com o aparelho ligado, normalmente indica dano interno ao display. Esse tipo de defeito é causado, na maioria dos casos, por impactos, pressão ou contato com líquidos, caracterizando uma avaria física na peça. Por esse motivo, não está coberto pela garantia, que se aplica apenas a defeitos de fabricação ou de instalação.
-        `,
+        tags: ["liga e não dá imagem", "só vibra", "tela apagada"],
+        description: `O aparelho liga — vibra, toca, recebe notificações — mas a tela continua preta.
+
+Na grande maioria dos casos, isso indica dano interno ao display causado por impacto, pressão ou contato com líquidos. Por ser uma avaria física, não é coberto pela garantia, que vale apenas para defeitos de fabricação e de instalação.`,
         images: images.telaapagada,
       },
       {
         id: 5,
         title: "Touch travado após atualização",
-        keyword: "Manchas",
         tags: [
-          "Touch travado após atualização",
           "touch parou após atualizar",
-          "touch travado",
-          "atualização de sistema",
-          "atualização do Android",
-          "incompatibilidade de sistema",
+          "atualização do sistema",
+          "incompatibilidade de software",
         ],
-        description: `
-        A garantia não cobre falhas de touch causadas por atualizações de sistema operacional. Em alguns casos, uma atualização pode gerar incompatibilidades de software, conflitos entre o sistema e o hardware ou até mesmo falhas temporárias no funcionamento da tela. Como esse tipo de problema não está relacionado à peça instalada nem ao serviço realizado, ele não é considerado um defeito de fabricação e, por isso, não é coberto pela garantia.
-        `,
+        description: `Atualizações do sistema operacional podem gerar incompatibilidades entre o software e a tela, fazendo o touch travar ou falhar.
+
+Como a causa está no sistema — e não na peça instalada nem no serviço — esse problema não é coberto pela garantia. Mesmo assim, traga o aparelho para avaliarmos a melhor solução.`,
         images: images.telaapagada,
       },
     ],
@@ -118,25 +123,32 @@ export const warrantyCategories = [
   {
     type: "Bateria",
     path: "/battery",
+    navLabel: "Bateria",
+    code: "BT",
+    accent: "#f6b73c",
+    title: "Troca de bateria",
+    cover: battery,
+    summary:
+      "Confira quais falhas de bateria são defeito da peça e quais são causadas por uso, quedas ou contato com líquidos.",
+    intro:
+      "A garantia da troca de bateria cobre defeitos de fabricação da peça instalada. Baterias com sinais de impacto, deformação ou contato com líquidos ficam fora da cobertura.",
     coverage: [
       {
         id: 1,
         title: "Descarregando rápido",
-        keyword: "quebrado",
-        tags: ["saúde baixa", "baixo desempenho"],
-        description: `
-        Uma bateria que descarrega rapidamente, sem sinais de mau uso, superaquecimento, contato com líquidos ou desgaste natural, pode indicar um defeito de fabricação na própria peça. Quando, após a análise técnica, for constatado que a perda excessiva de autonomia é causada por uma falha da bateria instalada e não por fatores externos ou pelo aparelho, o problema é coberto pela garantia.
-        `,
+        tags: ["saúde baixa", "autonomia curta", "baixo desempenho"],
+        description: `A bateria perde carga muito mais rápido do que deveria, sem sinais de queda, superaquecimento, contato com líquidos ou desgaste natural.
+
+Se a análise técnica confirmar que a falha está na bateria instalada — e não em outro componente do aparelho ou em fator externo — o defeito é coberto pela garantia.`,
         images: images.descarregandorapido,
       },
       {
         id: 2,
         title: "Não carrega",
-        keyword: "sem carregamento, carregamento lento",
-        tags: ["sem carregamento, carregamento lento"],
-        description: `
-        Quando a bateria apresenta autonomia muito abaixo do esperado sem sinais de mau uso, impacto, contato com líquidos ou alterações no aparelho, o problema pode indicar um defeito de fabricação da bateria, sendo passível de garantia.
-        `,
+        tags: ["sem carregamento", "carregamento lento", "não sobe a porcentagem"],
+        description: `O aparelho não carrega, ou a porcentagem quase não sobe, mesmo conectado ao carregador.
+
+Quando não há sinais de mau uso, impacto ou contato com líquidos, e a análise confirma que o problema está na bateria instalada, o defeito é tratado como falha de fabricação e coberto pela garantia.`,
         images: images.naocarrega,
       },
     ],
@@ -144,21 +156,19 @@ export const warrantyCategories = [
       {
         id: 1,
         title: "Bateria danificada",
-        keyword: "quebrado",
-        tags: ["marcas de queda", "rasgada"],
-        description: `
-        Impactos podem danificar internamente as células e os componentes da bateria, comprometendo seu funcionamento. Por isso, baterias com sinais de queda ou impacto não são cobertas pela garantia, pois o defeito pode ter sido causado por dano acidental..
-        `,
+        tags: ["marcas de queda", "amassada", "rasgada", "estufada por impacto"],
+        description: `Quedas e impactos podem amassar, rasgar ou deformar a bateria, danificando suas células internas.
+
+Baterias com esses sinais não são cobertas pela garantia, já que o defeito é consequência de dano acidental. Atenção: bateria amassada ou deformada pode ser perigosa — evite usar o aparelho e procure a assistência.`,
         images: images.bateriadanificada,
       },
       {
         id: 2,
         title: "Bateria molhada",
-        keyword: "quebrado",
-        tags: ["oxidações", "água", "ferrugem"],
-        description: `
-        Bateria com sinais de líquido (ferrugem ou oxidação): A presença de ferrugem ou oxidação indica contato com líquidos ou umidade, o que pode causar danos aos componentes internos da bateria. Por esse motivo, esse tipo de dano não é considerado defeito de fabricação e não é coberto pela garantia.
-        `,
+        tags: ["oxidação", "contato com água", "ferrugem"],
+        description: `Ferrugem, oxidação ou marcas de umidade indicam que a bateria teve contato com líquido.
+
+Isso danifica os componentes internos da peça e não caracteriza defeito de fabricação. Por isso, não é coberto pela garantia.`,
         images: images.bateriamolhada,
       },
     ],
@@ -166,61 +176,59 @@ export const warrantyCategories = [
   {
     type: "Conector",
     path: "/conector",
+    navLabel: "Conector",
+    code: "CN",
+    accent: "#22c3d6",
+    title: "Troca do conector de carga",
+    cover: conector,
+    summary:
+      "Descubra quais falhas na placa de carga são cobertas pela garantia e em quais situações o dano vem de fatores externos.",
+    intro:
+      "Em muitos aparelhos, a placa de carga não cuida só do carregamento: ela também participa do áudio, das antenas e do leitor de chip. Por isso, a garantia cobre algumas falhas que vão além do carregamento.",
     coverage: [
       {
         id: 1,
         title: "Parou de carregar (sem avarias)",
-        keyword: "quebrado",
-        tags: ["parou do nada", "sem sinal de carregamento"],
-        description: `
-        Quando o aparelho deixa de carregar e a placa de carga não apresenta sinais de impacto, oxidação, ferrugem, conector quebrado ou qualquer outro dano físico, o defeito pode estar relacionado a uma falha de fabricação do componente ou da instalação realizada. Nesses casos, após análise técnica, o problema é coberto pela garantia, pois caracteriza uma possível falha da peça ou do serviço prestado.
-        `,
+        tags: ["parou do nada", "não aparece carregando"],
+        description: `O aparelho deixou de carregar e a placa de carga não tem sinais de impacto, oxidação, ferrugem ou conector quebrado.
+
+Nesse cenário, o defeito pode estar na peça ou na instalação. Confirmado na análise técnica, o reparo é coberto pela garantia.`,
         images: images.naocarrega2,
       },
       {
         id: 2,
-        title: "Problemas com wifi (placa de carga)",
-        keyword: "sem wifi",
-        tags: ["wifi lento", "sem rede movel", "sem wifi", "sem gps"],
-        description: `
-        Wi-Fi sem funcionamento: Em muitos aparelhos Android, a placa de carga também possui contatos e conexões responsáveis pela comunicação com as antenas de sinal (Wi-Fi, Bluetooth, rede móvel e GPS). Se, após a substituição da peça, o Wi-Fi deixar de funcionar sem que haja sinais de impacto, oxidação, instalação incorreta ou danos ao aparelho, o problema pode indicar um defeito de fabricação na placa de carga ou em seus componentes, sendo passível de garantia.
-        `,
+        title: "Problemas com Wi-Fi ou sinal",
+        tags: ["Wi-Fi lento", "sem Wi-Fi", "sem rede móvel", "sem GPS"],
+        description: `Em muitos aparelhos Android, a placa de carga tem contatos que ligam as antenas de Wi-Fi, Bluetooth, rede móvel e GPS.
+
+Se, depois da troca, algum desses sinais parar de funcionar sem que haja impacto, oxidação ou danos no aparelho, o problema pode ser defeito da placa instalada e é coberto pela garantia.`,
         images: images.naopegawifi,
       },
       {
         id: 3,
-        title: "Problemas com chip(placa de carga)",
-        keyword: "sem sinal de chip",
-        tags: ["sem sinal de chip"],
-        description: `
-        Chip (SIM) sem funcionamento: Em alguns modelos de celulares, a placa de carga também abriga o leitor do chip (SIM). Se, após a substituição da peça, o aparelho deixar de reconhecer o chip e não houver sinais de impacto, oxidação, danos ao conector ou instalação inadequada, o problema pode estar relacionado a um defeito de fabricação no leitor SIM ou em seus componentes, sendo passível de garantia.
-        `,
+        title: "Chip não é reconhecido",
+        tags: ["sem sinal de chip", "chip não lê"],
+        description: `Em alguns modelos, o leitor do chip (SIM) fica na própria placa de carga.
+
+Se, depois da troca, o aparelho deixar de reconhecer o chip e não houver sinais de impacto, oxidação ou instalação inadequada, o defeito pode estar no leitor ou em seus componentes, e é coberto pela garantia.`,
         images: images.naopegachip,
       },
       {
         id: 4,
-        title: "Problemas no aúdio",
-        keyword: "audio geral",
-        tags: ["auto falante", "audio geral"],
-        description: `
-        Em diversos smartphones Android, a placa de carga também faz parte do circuito responsável pela comunicação de componentes de áudio. Por isso, caso o aparelho apresente falha no áudio após a troca da placa de carga e não existam sinais de danos físicos ou contato com líquidos, o defeito pode estar relacionado à peça instalada, sendo coberto pela garantia após confirmação da análise técnica.
-        `,
+        title: "Problemas no áudio",
+        tags: ["alto-falante", "microfone", "sem som"],
+        description: `Em diversos aparelhos Android, a placa de carga faz parte do circuito de áudio.
+
+Se o som falhar depois da troca e não houver sinais de danos físicos ou de contato com líquidos, o defeito pode estar na peça instalada. Confirmado na análise técnica, é coberto pela garantia.`,
         images: images.naosaiaudio,
       },
       {
         id: 5,
         title: "Carregamento lento",
-        keyword: "audio geral",
-        tags: [
-          "Carregamento lento",
-          "demora para carregar",
-          "carrega devagar",
-          "carga lenta",
-          "baixa velocidade de carregamento",
-        ],
-        description: `
-        Quando o aparelho passa a carregar lentamente, sem apresentar sinais de oxidação, ferrugem, conector quebrado, impactos ou outros danos físicos, o problema pode estar relacionado a um defeito de fabricação da placa de carga. Uma falha em seus componentes eletrônicos pode impedir o fornecimento correto de energia para a bateria, reduzindo a velocidade de carregamento. Nesses casos, após análise técnica, o defeito é coberto pela garantia, por se tratar de uma possível falha da peça instalada.
-        `,
+        tags: ["demora para carregar", "carga lenta", "carregamento rápido não funciona"],
+        description: `O aparelho passou a carregar muito devagar, sem sinais de oxidação, ferrugem, conector quebrado ou outros danos físicos.
+
+Uma falha nos componentes da placa de carga pode impedir que a energia chegue corretamente à bateria. Confirmado na análise técnica, o defeito é coberto pela garantia.`,
         images: images.naocarrega2,
       },
     ],
@@ -228,21 +236,19 @@ export const warrantyCategories = [
       {
         id: 1,
         title: "Conector quebrado",
-        keyword: "quebrado",
-        tags: ["faltando peça", "danificado"],
-        description: `
-        O conector é uma parte sensível da bateria e pode ser danificado durante manuseio, instalação ou por esforço mecânico. Como esse tipo de dano não ocorre por defeito de fabricação, baterias com conector quebrado não são cobertas pela garantia.
-        `,
+        tags: ["pinos tortos", "faltando peça", "conector solto", "entrada danificada"],
+        description: `Pinos tortos, partes faltando ou um conector solto da placa indicam esforço mecânico: cabo puxado de lado, encaixe forçado ou queda com o carregador conectado.
+
+Como é um dano físico, e não um defeito de fabricação, não é coberto pela garantia.`,
         images: images.conectorquebrado,
       },
       {
         id: 2,
         title: "Placa de carga oxidada",
-        keyword: "quebrado",
-        tags: ["oxidações", "água", "ferrugem"],
-        description: `
-        Placa de carga com oxidação ou ferrugem: A presença de oxidação ou ferrugem indica contato com líquidos ou umidade, o que pode comprometer o funcionamento dos componentes da placa. Como esse tipo de dano é causado por fatores externos, não é considerado defeito de fabricação e não é coberto pela garantia.
-        `,
+        tags: ["oxidação", "contato com água", "ferrugem"],
+        description: `Oxidação ou ferrugem na placa de carga indicam contato com líquido ou umidade, o que compromete o funcionamento dos componentes.
+
+Por ser um dano causado por fator externo, não é considerado defeito de fabricação e não é coberto pela garantia.`,
         images: images.placadecargaoxidada,
       },
     ],
@@ -250,46 +256,44 @@ export const warrantyCategories = [
   {
     type: "Placa",
     path: "/placa",
+    navLabel: "Placa",
+    code: "PL",
+    accent: "#3ddc97",
+    title: "Reparos na placa",
+    cover: placa,
+    summary:
+      "Entenda o que a garantia de um reparo em placa cobre e quais defeitos são novos danos, sem relação com o serviço feito.",
+    intro:
+      "A garantia de reparo em placa cobre o mesmo defeito que foi corrigido. Novos problemas, ou sinais de queda e de líquido, ficam fora da cobertura.",
     coverage: [
       {
         id: 1,
-        title: "Quando o problema ainda persiste",
-        keyword: "quebrado",
+        title: "O mesmo defeito voltou",
         tags: [
-          "Mesmo defeito",
           "defeito persistente",
-          "problema continua",
-          "garantia cobre",
+          "mesmo problema",
           "sem marcas de queda",
           "sem oxidação",
-          "sem ferrugem",
-          "sem contato com líquidos",
-          "sem danos físicos",
-          "falha da peça",
-          "falha no reparo",
         ],
-        description: `
-        Se o defeito apresentado após o reparo for o mesmo que motivou o serviço e, durante a análise técnica, não forem encontrados sinais de queda, impactos, contato com líquidos, ferrugem, oxidação ou qualquer outro dano externo, o reparo será realizado em garantia. Nesses casos, o problema pode estar relacionado a uma falha do serviço executado ou da peça utilizada, estando coberto pela garantia.
-        `,
+        description: `O defeito que apareceu depois do reparo é o mesmo que motivou o serviço.
+
+Se, na análise técnica, não forem encontrados sinais de queda, impacto, contato com líquidos, ferrugem ou oxidação, o problema é tratado como falha do serviço ou da peça utilizada, e o reparo é refeito em garantia.`,
         images: images.bhsad,
       },
     ],
     exclusions: [
       {
         id: 1,
-        title: "Danos da placa",
-        keyword: "quebrado",
+        title: "Placa danificada",
         tags: [
-          "Marcas de queda",
+          "marcas de queda",
           "placa amassada",
           "placa empenada",
           "placa trincada",
-          "dano por impacto",
-          "amassado na placa",
         ],
-        description: `
-        A garantia do reparo em placa cobre apenas o defeito originalmente corrigido e possíveis falhas relacionadas ao serviço realizado. Caso a placa apresente sinais de queda, impactos, amassados, trincas ou outras avarias físicas, a garantia é automaticamente invalidada, pois esses danos podem causar novos defeitos ou comprometer circuitos que não possuem relação com o reparo anterior.
-        `,
+        description: `A garantia do reparo em placa cobre apenas o defeito que foi corrigido e possíveis falhas ligadas a esse serviço.
+
+Se a placa tiver sinais de queda, impacto, amassados, trincas ou outras avarias físicas, a garantia é invalidada: esses danos podem causar novos defeitos e afetar circuitos que não têm relação com o reparo anterior.`,
         images: images.mainboardbroken,
       },
     ],

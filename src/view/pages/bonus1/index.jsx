@@ -1,108 +1,126 @@
-import { CiWarning } from "react-icons/ci";
-import { IoMdPhonePortrait } from "react-icons/io";
-import { TfiBackLeft } from "react-icons/tfi";
-import { VscImportantCompact } from "react-icons/vsc";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { LuArrowLeft } from "react-icons/lu";
+import { WhatsAppButton } from "../../components/whatsappButton";
+import { useReveal } from "../../../hooks/useMotion";
+
+const observations = [
+  "Diferença no acabamento da peça",
+  "Cores menos vivas e saturadas",
+  "A biometria na tela não funciona",
+  "Maior consumo de bateria",
+  "Bordas da tela mais grossas",
+  "Aro da tela um pouco mais alto",
+];
 
 export function Bonus1() {
-  const nav = useNavigate();
-  return (
-    <div className="">
-      <div>
-        <div className="p-4 py-1 mb-4">
-          <div className="md:flex justify-center">
-            <div className="flex items-center px-4 py-2 rounded-xl bg-white shadow-md mb-6 md:w-fit">
-              <TfiBackLeft
-                onClick={() => {
-                  nav(-1);
-                }}
-                className="scale-y-[-1] w-fit text-gray-600 border-r pr-4 border-gray-400"
-              />
-              <div className="ml-4 py-2 w-full text-gray-700 text-sm">
-                Conteúdo extra{" "}
-                <div className="inline text-blue-400 font-bold">#001</div>
-              </div>
-            </div>
-          </div>
+  const revealRef = useReveal();
 
-          <h2 className=" font-bold text-slate-700 flex gap-2 text-2xl">
-            Por que mais de um tipo de display?
-          </h2>
-          <p className="text-slate-800 text-sm my-2">
-            Em busca de uma{" "}
-            <strong className="text-bold">
-              solução mais encômica para o usuário final
-            </strong>
-            , os fabricantes criam versões simplificadas das telas de fábrica. É
-            importante atentar para os pós e contras na hora de escolher a
-            qualidade de tela.
-          </p>
+  return (
+    <div ref={revealRef}>
+      <section className="grain relative isolate overflow-hidden border-b border-line">
+        <div aria-hidden className="mesh -z-10 opacity-60">
+          <span className="m1" />
+          <span className="m3" />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-linear-to-b from-transparent to-bg" aria-hidden />
+        <div className="mx-auto max-w-6xl px-4 pb-14 pt-32 md:px-6 md:pb-20 md:pt-40">
+          <div className="mx-auto flex max-w-3xl animate-fade-up flex-col items-center text-center">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-3 transition-colors hover:text-ink"
+            >
+              <LuArrowLeft aria-hidden /> Início
+            </Link>
+            <span className="mt-8 flex items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-3">
+              <span className="text-accent">#001</span>
+              <span className="h-px w-8 bg-line-strong" />
+              Conteúdo extra
+            </span>
+            <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl">
+              Por que existe mais de um tipo de tela?
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
+              Para oferecer uma <strong className="text-ink">opção mais econômica</strong>,
+              os fabricantes de peças produzem versões simplificadas das telas
+              originais. Antes de escolher, vale conhecer os prós e os contras.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-4 pt-14 md:px-6 md:pt-20">
+        <div className="grid gap-4 md:grid-cols-2">
+          <article data-reveal className="rounded-[28px] border border-line bg-panel p-7 md:p-10">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand">
+              Definição
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-semibold text-ink">Paralela / Incell</h2>
+            <p className="mt-5 leading-relaxed text-ink">
+              "Paralela" é qualquer tela com tecnologia diferente da original do
+              aparelho. Se a tela original é OLED, toda tela que não for OLED é
+              considerada paralela para aquele modelo.
+            </p>
+            <p className="mt-4 leading-relaxed text-ink-2">
+              Por isso, ela não tem exatamente os mesmos recursos e a mesma
+              qualidade da original. Na maioria dos casos, as telas paralelas
+              são do tipo LCD (como a Incell).
+            </p>
+          </article>
+
+          <article
+            data-reveal
+            style={{ "--reveal-delay": "100ms" }}
+            className="rounded-[28px] border border-line bg-panel p-7 md:p-10"
+          >
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              O que muda na prática
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-semibold text-ink">Pontos de atenção</h2>
+            <ol className="mt-5">
+              {observations.map((item, i) => (
+                <li
+                  key={item}
+                  className="flex items-baseline gap-4 border-b border-line py-3 text-ink-2 last:border-0"
+                >
+                  <span className="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, "0")}</span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </article>
         </div>
 
-        <div>
-          <div className="md:overflow-x-hidden overflow-x-auto overflow-y-hidden w-full">
-            <div className="flex gap-4 md:mb-1 ">
-              <div className="md:w-1/2 h-full w-[90%] pl-4 shrink-0 md:shrink index-40">
-                <p className="border rounded-2xl p-4 pb-8 text-sm bg-blue-50 border-blue-300 text-blue-950">
-                  <h2 className="mb-2 font-bold text-lg text-slate-700 flex gap-2 items-center ">
-                    <IoMdPhonePortrait />
-                    Parela/Incel
-                  </h2>
-                  <p className="leading-relaxed">
-                    O termo paralela representa uma qualidade do display
-                    diferente do display original. Por exemplo: Se a tela
-                    original de um aparelho é Oled, todo display diferente de
-                    Oled é paralela para esse aparelho. Sendo assim, uma tela
-                    paralela não tem os mesmos recursos e qualidades da
-                    original. Geralmente as telas paralelas são as de display
-                    LCD.
-                  </p>
-                </p>
-              </div>
+        <aside
+          data-reveal
+          className="mt-4 rounded-[28px] border border-accent/30 bg-accent/5 p-7 md:p-10"
+        >
+          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">Importante</span>
+          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-ink">
+            Em alguns aparelhos, como o Galaxy A07 e o iPhone 11, a tela
+            original já é LCD. Geralmente são modelos de entrada, mais baratos.
+            Já os aparelhos com tela OLED, ou superior, contam com uma
+            tecnologia de tela mais avançada.
+          </p>
+        </aside>
 
-              <div className="w-[90%] shrink-0 md:shrink md:w-1/2 pr-4 md:pr-0">
-                <ul className=" leading-relaxed border rounded-2xl p-4 pb-8 text-sm bg-amber-50 border-amber-300 text-amber-900">
-                  <h3 className="text-lg font-bold pb-2 text-amber-950 flex gap-2 items-center">
-                    <CiWarning /> Principais observações:
-                  </h3>
-                  <li className="flex gap-2 items-center">
-                    <div className="h-1 w-1 bg-amber-900 rounded-full" />
-                    Diferença no acabamento da peça.
-                  </li>
-                  <li className="flex gap-2 items-center">
-                    <div className="h-1 w-1 bg-amber-900 rounded-full" />
-                    Cores menos saturadas.
-                  </li>
-                  <li className="flex gap-2 items-center">
-                    <div className="h-1 w-1 bg-amber-900 rounded-full" />A
-                    Biometria da tela não funciona.
-                  </li>
-                  <li className="flex gap-2 items-center">
-                    <div className="h-1 w-1 bg-amber-900 rounded-full" />
-                    Maior consumo de bateria.
-                  </li>
-                  <li className="flex gap-2 items-center">
-                    <div className="h-1 w-1 bg-amber-900 rounded-full" />
-                    Tela com bordas maiores.
-                  </li>
-                  <li className="flex gap-2 items-center">
-                    <div className="h-1 w-1 bg-amber-900 rounded-full" />
-                    Altura do aro da tela maior.
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <div
+          data-reveal
+          className="mt-16 flex flex-col items-start justify-between gap-6 rounded-[28px] border border-line bg-panel p-7 md:flex-row md:items-center md:p-10"
+        >
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              Em dúvida sobre qual tela escolher?
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-semibold text-ink md:text-3xl">
+              Informe o modelo e mostramos as opções.
+            </h2>
           </div>
-
-          <div className="p-4 text-sm border mx-4 rounded-xl border-gray-300 relative text-gray-800 md:w-1/3 mt-4">
-            <div className="font-bold absolute -top-2.5 bg-background px-2 flex items-center">
-              <VscImportantCompact /> Importante
-            </div>
-            Existem aparelhos como A07 e iPhone 11 em que a tela original é LCD.
-            Celulares com tela LCD como sendo a original de fábrica tendem a ser
-            aparelhos de entrada sendo os mais baratos do mercado, enquanto os
-            de tela Oled ou superior tem uma teclogia de tela melhor.
-          </div>
+          <WhatsAppButton
+            className="shrink-0"
+            message="Olá! Gostaria de saber quais opções de tela vocês têm para o meu aparelho."
+          >
+            Consultar opções
+          </WhatsAppButton>
         </div>
       </div>
     </div>
