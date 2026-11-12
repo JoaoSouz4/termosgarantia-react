@@ -2,7 +2,6 @@ import { LuArrowDown, LuCheck, LuX } from "react-icons/lu";
 import { warrantyCategories } from "../../../data/warrantyExclusions";
 import { usePrefersReducedMotion, useReveal, useScrollProgress } from "../../../hooks/useMotion";
 import { WhatsAppButton } from "../../components/whatsappButton";
-import { WorkshopStage } from "./workshop";
 import { ServiceCard } from "./card";
 import { BonusContent } from "./bonusContent";
 import { SectionTitle } from "./sectionTitle";
@@ -186,15 +185,15 @@ export function Home() {
 
 function Hero() {
   const reduced = usePrefersReducedMotion();
-  const { ref, progress } = useScrollProgress(!reduced);
+  const { ref } = useScrollProgress(!reduced);
 
   return (
     <section
       ref={ref}
-      className="grain relative isolate flex min-h-svh w-full flex-col overflow-hidden md:block md:h-svh md:min-h-160"
+      className="grain relative isolate flex h-svh min-h-140 w-full items-center justify-center overflow-hidden"
       style={{ "--p": 0 }}
     >
-      {/* Camada 1 — fundo (mais lento) */}
+      {/* Fundo (parallax mais lento) */}
       <div
         aria-hidden
         className="absolute inset-0 -z-20 will-change-transform"
@@ -206,27 +205,24 @@ function Hero() {
           <span className="m3" />
           <span className="m4" />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_70%_55%,transparent,var(--bg)_85%)]" />
-        <div className="absolute inset-0 hidden opacity-[0.06] bg-[linear-gradient(to_right,var(--ink)_1px,transparent_1px),linear-gradient(to_bottom,var(--ink)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(60%_60%_at_60%_50%,black,transparent)] md:block" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_45%,transparent,var(--bg)_85%)]" />
+        <div className="absolute inset-0 hidden opacity-[0.06] bg-[linear-gradient(to_right,var(--ink)_1px,transparent_1px),linear-gradient(to_bottom,var(--ink)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(60%_60%_at_50%_50%,black,transparent)] md:block" />
       </div>
 
-      {/* Camada 3 — conteúdo. No mobile vem primeiro, acima do personagem. */}
+      {/* Conteúdo centralizado */}
       <div
-        className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-4 pt-24 md:flex md:h-full md:flex-col md:justify-center md:px-6 md:pb-0 md:pt-16"
+        className="relative z-10 w-full px-5 md:-mt-[7vh] md:px-6"
         style={{
           transform: "translate3d(0, calc(var(--p) * -30%), 0)",
           opacity: "calc(1 - var(--p) * 1.8)",
         }}
       >
-        <div className="mx-auto max-w-xl animate-fade-up text-center md:mx-0 md:text-left">
+        <div className="mx-auto max-w-3xl animate-fade-up text-center">
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-3">
             BH Assistência Técnica <span className="text-accent">/</span> Porto Velho
           </span>
-          <h1 className="mt-4 font-display text-[2.5rem] font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl md:mt-5 lg:text-[5.2rem]">
-            Garantia
-            <br />
-            sem letra
-            <br />
+          <h1 className="mt-5 font-display text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-[5.6rem]">
+            Garantia sem letra{" "}
             <span className="relative inline-block text-accent">
               miúda.
               <svg
@@ -239,11 +235,11 @@ function Hero() {
               </svg>
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-md text-base md:mx-0 leading-relaxed text-ink-2 md:mt-7 md:text-lg">
+          <p className="mx-auto mt-7 max-w-lg text-base leading-relaxed text-ink-2 md:text-lg">
             O que passa e o que não passa na garantia de 3 meses dos nossos
             serviços — explicado caso a caso, com exemplos.
           </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center md:mt-8 md:justify-start">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
             <a
               href="#servicos"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[15px] font-semibold text-bg transition-all hover:gap-3"
@@ -254,17 +250,6 @@ function Hero() {
             <WhatsAppButton variant="ghost">Tirar dúvida</WhatsAppButton>
           </div>
         </div>
-      </div>
-
-      {/* Camada 2 — personagem 3D. Mobile: encostado na base da tela. Desktop: à direita, atrás do texto. */}
-      <div
-        className="stage relative mt-auto h-[46svh] min-h-72 w-full will-change-transform md:absolute md:bottom-[12vh] md:left-[28%] md:right-0 md:top-0 md:-z-10 md:mt-0 md:h-auto md:min-h-0"
-        style={{
-          transform: "translate3d(0, calc(var(--p) * -6%), 0)",
-          opacity: "calc(1 - var(--p) * 0.7)",
-        }}
-      >
-        <WorkshopStage progress={progress} reducedMotion={reduced} />
       </div>
     </section>
   );

@@ -17,29 +17,55 @@ export function usePrefersReducedMotion() {
   return reduced;
 }
 
-/** Revela elementos com [data-reveal] dentro do container ao entrarem na tela. */
-export function useReveal(deps = []) {
+/**
+ * Revela elementos com [data-reveal] dentro do container ao entrarem na tela.
+ * Também observa elementos adicionados depois (troca de aba, troca de serviço),
+ * para que nenhum card fique invisível.
+ */
+export function useReveal() {
   const ref = useRef(null);
 
   useEffect(() => {
     const root = ref.current;
     if (!root) return;
-    const els = root.querySelectorAll("[data-reveal]:not(.is-visible)");
+
+    const reveal = (el) => el.classList.add("is-visible");
+
+    // Sem suporte: mostra tudo
+    if (typeof IntersectionObserver === "undefined") {
+      root.querySelectorAll("[data-reveal]").forEach(reveal);
+      return;
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("is-visible");
+            reveal(e.target);
             io.unobserve(e.target);
           }
         });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -5% 0px", threshold: 0 },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+
+    const watch = (scope) => {
+      if (scope.matches?.("[data-reveal]:not(.is-visible)")) io.observe(scope);
+      scope.querySelectorAll?.("[data-reveal]:not(.is-visible)").forEach((el) => io.observe(el));
+    };
+    watch(root);
+
+    // Elementos inseridos depois da montagem
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => m.addedNodes.forEach((n) => n.nodeType === 1 && watch(n)));
+    });
+    mo.observe(root, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
+  }, []);
 
   return ref;
 }

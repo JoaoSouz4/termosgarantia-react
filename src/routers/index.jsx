@@ -15,11 +15,11 @@ export function Router() {
             <Route
               key={category.type}
               path={category.path}
-              element={<WarrantyCategoryPage category={category} />}
+              element={<WarrantyCategoryPage key={category.path} category={category} />}
             />
           ))}
 
-          <Route path="/bonus1" element={<Bonus1 />} />
+          <Route path="/bonus1" element={<Bonus1 />} />
         </Route>
       </Routes>
     </BrowserRouter>

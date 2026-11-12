@@ -12,7 +12,7 @@ export function WarrantyCategoryPage({ category }) {
   const [tab, setTab] = useState("exclusions");
   const items = tab === "coverage" ? coverage : exclusions;
   const listRef = useRef(null);
-  const revealRef = useReveal([tab]);
+  const revealRef = useReveal();
 
   function changeTab(next) {
     if (next === tab) return;
