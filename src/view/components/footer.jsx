@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.webp";
 import { warrantyCategories } from "../../data/warrantyExclusions";
@@ -23,30 +23,20 @@ export function Footer() {
             Garantia de 3 meses em todos os serviços, explicada sem letra
             miúda.
           </p>
-          <div className="mt-6 flex gap-2 text-ink-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-line">
-              <FaInstagram aria-label="Instagram" />
-            </span>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-line">
-              <FaFacebook aria-label="Facebook" />
-            </span>
-          </div>
         </div>
 
         <div>
-          <h3 className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-3">
-            Serviços
-          </h3>
-          <ul className="space-y-3 text-sm">
+          <h2 className="mb-4 text-sm font-semibold text-ink">Serviços</h2>
+          <ul className="space-y-1 text-sm">
             {warrantyCategories.map((category) => (
               <li key={category.path}>
-                <Link to={category.path} className="text-ink-2 transition-colors hover:text-ink">
+                <Link to={category.path} className="inline-flex min-h-11 items-center text-ink-2 transition-colors hover:text-ink md:min-h-9">
                   {category.title}
                 </Link>
               </li>
             ))}
             <li>
-              <Link to="/bonus1" className="text-ink-2 transition-colors hover:text-ink">
+              <Link to="/bonus1" className="inline-flex min-h-11 items-center text-ink-2 transition-colors hover:text-ink md:min-h-9">
                 Qualidades de tela
               </Link>
             </li>
@@ -54,14 +44,12 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-3">
-            Contato
-          </h3>
+          <h2 className="mb-4 text-sm font-semibold text-ink">Contato</h2>
           <a
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-whatsapp transition-opacity hover:opacity-80"
+            className="-my-2 mb-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-wa-ink transition-opacity hover:opacity-80"
           >
             <FaWhatsapp aria-hidden /> {WHATSAPP_DISPLAY}
           </a>
@@ -69,15 +57,13 @@ export function Footer() {
             {addresses.map((address) => (
               <li key={address}>{address}</li>
             ))}
-            <li className="font-mono text-xs uppercase tracking-widest text-ink-3">
-              Porto Velho — RO
-            </li>
+            <li className="text-ink-3">Porto Velho, Rondônia</li>
           </ul>
         </div>
       </div>
 
-      <div className="relative border-t border-line py-6 text-center font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">
-        Desenvolvido por BH Peças · Porto Velho (RO)
+      <div className="relative border-t border-line px-6 py-6 text-center text-xs text-ink-3">
+        Desenvolvido por BH Peças, Porto Velho (RO)
       </div>
     </footer>
   );

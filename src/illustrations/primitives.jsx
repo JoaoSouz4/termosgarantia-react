@@ -568,7 +568,7 @@ export function BatteryIcon({ cx, cy, w = 90, h = 42, level = 0.5, color, off = 
 
 export function Label({ x, y, text, color = C.ink, size = 13, anchor = "middle" }) {
   return (
-    <text x={x} y={y} fontSize={size} fontFamily="'JetBrains Mono', ui-monospace, monospace" fontWeight="600" fill={color} textAnchor={anchor} letterSpacing="1">
+    <text x={x} y={y} fontSize={size} fontFamily="Inter, system-ui, sans-serif" fontWeight="700" fill={color} textAnchor={anchor} letterSpacing="1">
       {text}
     </text>
   );

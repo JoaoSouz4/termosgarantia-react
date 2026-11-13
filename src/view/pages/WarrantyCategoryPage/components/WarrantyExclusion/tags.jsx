@@ -1,16 +1,17 @@
+/** Outras formas de descrever o problema: ajuda a pessoa a se reconhecer no caso. */
 export function Tags({ tags = [] }) {
   if (!tags.length) return null;
 
   return (
-    <ul aria-label="Também conhecido como" className="mt-4 flex flex-wrap gap-1.5">
-      {tags.map((tag) => (
-        <li
-          key={tag}
-          className="rounded-md border border-line bg-bg-2 px-2 py-1 font-mono text-[11px] text-ink-2"
-        >
-          {tag}
-        </li>
-      ))}
-    </ul>
+    <div className="mt-6">
+      <p className="text-sm font-medium text-ink-3">Também conhecido como</p>
+      <ul className="mt-2 flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <li key={tag} className="rounded-full border border-line bg-bg-2 px-3 py-1 text-[13px] text-ink-2">
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

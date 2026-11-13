@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { LuArrowLeft } from "react-icons/lu";
 import { WhatsAppButton } from "../../components/whatsappButton";
-import { useReveal } from "../../../hooks/useMotion";
 
 const observations = [
   "Diferença no acabamento da peça",
@@ -13,10 +12,8 @@ const observations = [
 ];
 
 export function Bonus1() {
-  const revealRef = useReveal();
-
   return (
-    <div ref={revealRef}>
+    <div className="pb-8">
       <section className="grain relative isolate overflow-hidden border-b border-line">
         <div aria-hidden className="mesh -z-10 opacity-60">
           <span className="m1" />
@@ -27,15 +24,11 @@ export function Bonus1() {
           <div className="mx-auto flex max-w-3xl animate-fade-up flex-col items-center text-center">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-3 transition-colors hover:text-ink"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full px-2 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
             >
-              <LuArrowLeft aria-hidden /> Início
+              <LuArrowLeft aria-hidden /> Voltar ao início
             </Link>
-            <span className="mt-8 flex items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-3">
-              <span className="text-accent">#001</span>
-              <span className="h-px w-8 bg-line-strong" />
-              Conteúdo extra
-            </span>
+            <p className="mt-6 text-sm font-medium text-ink-2">Antes de trocar a tela</p>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl">
               Por que existe mais de um tipo de tela?
             </h1>
@@ -50,11 +43,8 @@ export function Bonus1() {
 
       <div className="mx-auto max-w-6xl px-4 pt-14 md:px-6 md:pt-20">
         <div className="grid gap-4 md:grid-cols-2">
-          <article data-reveal className="rounded-[28px] border border-line bg-panel p-7 md:p-10">
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand">
-              Definição
-            </span>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-ink">Paralela / Incell</h2>
+          <article className="rounded-[28px] border border-line bg-panel p-7 md:p-10">
+            <h2 className="font-display text-2xl font-semibold text-ink">Paralela / Incell</h2>
             <p className="mt-5 leading-relaxed text-ink">
               "Paralela" é qualquer tela com tecnologia diferente da original do
               aparelho. Se a tela original é OLED, toda tela que não for OLED é
@@ -68,34 +58,28 @@ export function Bonus1() {
           </article>
 
           <article
-            data-reveal
-            style={{ "--reveal-delay": "100ms" }}
             className="rounded-[28px] border border-line bg-panel p-7 md:p-10"
           >
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
-              O que muda na prática
-            </span>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-ink">Pontos de atenção</h2>
-            <ol className="mt-5">
-              {observations.map((item, i) => (
+            <h2 className="font-display text-2xl font-semibold text-ink">O que muda na prática</h2>
+            <ul className="mt-4">
+              {observations.map((item) => (
                 <li
                   key={item}
-                  className="flex items-baseline gap-4 border-b border-line py-3 text-ink-2 last:border-0"
+                  className="flex items-baseline gap-3 border-b border-line py-3 text-ink-2 last:border-0"
                 >
-                  <span className="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, "0")}</span>
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 translate-y-[-2px] rounded-full bg-ink-3" />
                   {item}
                 </li>
               ))}
-            </ol>
+            </ul>
           </article>
         </div>
 
         <aside
-          data-reveal
           className="mt-4 rounded-[28px] border border-accent/30 bg-accent/5 p-7 md:p-10"
         >
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">Importante</span>
-          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-ink">
+          <h2 className="font-display text-lg font-semibold text-ink">Atenção ao modelo do seu aparelho</h2>
+          <p className="mt-2 max-w-3xl text-lg leading-relaxed text-ink">
             Em alguns aparelhos, como o Galaxy A07 e o iPhone 11, a tela
             original já é LCD. Geralmente são modelos de entrada, mais baratos.
             Já os aparelhos com tela OLED, ou superior, contam com uma
@@ -104,22 +88,17 @@ export function Bonus1() {
         </aside>
 
         <div
-          data-reveal
-          className="mt-16 flex flex-col items-start justify-between gap-6 rounded-[28px] border border-line bg-panel p-7 md:flex-row md:items-center md:p-10"
+          className="mt-12 md:mt-16 flex flex-col items-start justify-between gap-6 rounded-[28px] border border-line bg-panel p-7 md:flex-row md:items-center md:p-10"
         >
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
-              Em dúvida sobre qual tela escolher?
-            </span>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-ink md:text-3xl">
-              Informe o modelo e mostramos as opções.
-            </h2>
+            <h2 className="font-display text-xl font-semibold text-ink md:text-3xl">Em dúvida sobre qual tela escolher?</h2>
+            <p className="mt-2 text-ink-2">Informe o modelo do aparelho e mostramos as opções disponíveis.</p>
           </div>
           <WhatsAppButton
-            className="shrink-0"
+            className="w-full shrink-0 md:w-auto"
             message="Olá! Gostaria de saber quais opções de tela vocês têm para o meu aparelho."
           >
-            Consultar opções
+            Ver opções de tela no WhatsApp
           </WhatsAppButton>
         </div>
       </div>

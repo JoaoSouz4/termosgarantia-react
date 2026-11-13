@@ -34,7 +34,7 @@ export function Header() {
           scrolled ? "" : "md:py-2.5"
         }`}
       >
-        <Link to="/" className="relative z-20 flex items-center gap-3">
+        <Link to="/" className="relative z-20 flex min-h-11 items-center gap-3">
           <img
             className="w-10 invert dark:invert-0"
             src={logo}
@@ -44,9 +44,7 @@ export function Header() {
             <span className="block font-display text-sm font-semibold text-ink">
               Termos da garantia
             </span>
-            <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-ink-3">
-              BH Assistência
-            </span>
+            <span className="block text-xs text-ink-2">BH Assistência Técnica</span>
           </span>
         </Link>
 
@@ -75,7 +73,7 @@ export function Header() {
             type="button"
             onClick={toggle}
             aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-ink-2 transition-colors hover:bg-ink/10 hover:text-ink"
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink-2 transition-colors hover:bg-ink/10 hover:text-ink"
           >
             {theme === "dark" ? <LuSun aria-hidden /> : <LuMoon aria-hidden />}
           </button>

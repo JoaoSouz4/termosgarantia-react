@@ -1,10 +1,12 @@
 import { LuArrowDown, LuCheck, LuX } from "react-icons/lu";
 import { warrantyCategories } from "../../../data/warrantyExclusions";
-import { usePrefersReducedMotion, useReveal, useScrollProgress } from "../../../hooks/useMotion";
+import { usePrefersReducedMotion, useScrollProgress } from "../../../hooks/useMotion";
 import { WhatsAppButton } from "../../components/whatsappButton";
 import { ServiceCard } from "./card";
 import { BonusContent } from "./bonusContent";
 import { SectionTitle } from "./sectionTitle";
+import { CircuitBackground } from "./circuitBackground";
+import { HeroArt } from "../../../illustrations/hero";
 
 const steps = [
   {
@@ -36,84 +38,64 @@ const notCovered = [
 ];
 
 export function Home() {
-  const revealRef = useReveal();
-
   return (
-    <div ref={revealRef}>
+    <div>
       <Hero />
 
-      {/* A próxima seção sobe por cima do herói: transição em camadas */}
+      {/* A próxima seção sobe por cima do herói */}
       <div className="relative z-10 rounded-t-[32px] border-t border-line bg-bg md:-mt-[14vh] md:rounded-t-[56px]">
-        <section id="servicos" className="mx-auto max-w-6xl scroll-mt-28 px-4 pt-14 md:px-6 md:pt-24">
+        <section aria-labelledby="t-servicos" id="servicos" className="mx-auto max-w-6xl scroll-mt-28 px-4 pt-12 md:px-6 md:pt-24">
           <SectionTitle
-            index="01"
-            eyebrow="Serviços"
+            id="t-servicos"
             title="Qual reparo foi feito no seu aparelho?"
-            text="Escolha o serviço para ver, caso a caso, o que a garantia cobre."
+            text="Escolha o serviço para ver, caso a caso, o que passa e o que não passa na garantia."
           />
-          <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-12">
+          <div className="mt-8 grid auto-rows-fr gap-3 md:mt-12 md:grid-cols-2 md:gap-4 lg:auto-rows-auto lg:grid-cols-12">
             {warrantyCategories.map((category, i) => (
-              <ServiceCard
-                key={category.path}
-                category={category}
-                index={i}
-                featured={i === 0}
-              />
+              <ServiceCard key={category.path} category={category} featured={i === 0} />
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
-          <SectionTitle index="02" eyebrow="Como funciona" title="Três passos, sem letra miúda" />
-          <ol className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
-            <span
-              aria-hidden
-              className="absolute left-0 right-0 top-[27px] hidden h-px bg-linear-to-r from-transparent via-line-strong to-transparent md:block"
-            />
+        <section aria-labelledby="t-como" className="mx-auto max-w-6xl px-4 pt-16 md:px-6 md:pt-32">
+          <SectionTitle id="t-como" title="Como usar este guia" />
+          <ol className="mt-8 grid gap-3 md:mt-12 md:grid-cols-3 md:gap-4">
             {steps.map(({ title, text }, i) => (
-              <li
-                key={title}
-                data-reveal
-                style={{ "--reveal-delay": `${i * 120}ms` }}
-                className="relative"
-              >
-                <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-line-strong bg-panel font-mono text-sm text-accent">
-                  0{i + 1}
+              <li key={title} className="flex gap-4 rounded-3xl border border-line p-5 md:flex-col md:p-7">
+                <span
+                  aria-hidden
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink/8 font-display text-base font-semibold text-ink"
+                >
+                  {i + 1}
                 </span>
-                <h3 className="mt-6 font-display text-xl font-semibold text-ink">{title}</h3>
-                <p className="mt-2 max-w-xs leading-relaxed text-ink-2">{text}</p>
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-ink">{title}</h3>
+                  <p className="mt-1 leading-relaxed text-ink-2">{text}</p>
+                </div>
               </li>
             ))}
           </ol>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
+        <section aria-labelledby="t-cobertura" className="mx-auto max-w-6xl px-4 pt-16 md:px-6 md:pt-32">
           <SectionTitle
-            index="03"
-            eyebrow="Cobertura"
+            id="t-cobertura"
             title="Garantia não é seguro"
             text="Ela cobre defeitos de fabricação das peças e falhas na mão de obra. Danos que acontecem depois do reparo ficam de fora."
           />
 
-          <div
-            data-reveal
-            className="mt-12 overflow-hidden rounded-[28px] border border-line bg-panel"
-          >
-            <div className="flex items-center justify-between border-b border-line px-6 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-3 md:px-8">
-              <span>Laudo de cobertura</span>
-              <span>Validade · 3 meses</span>
-            </div>
+          <div className="mt-8 overflow-hidden rounded-3xl border border-line bg-panel md:mt-12">
             <div className="grid md:grid-cols-2">
               <div className="p-6 md:p-10">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ok-soft text-ok">
+                <h3 className="flex items-center gap-3 font-display text-xl font-semibold text-ink">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ok text-on-ok">
                     <LuCheck aria-hidden />
                   </span>
-                  <h3 className="font-display text-xl font-semibold text-ink">Passa na garantia</h3>
-                </div>
-                <ul className="mt-7 space-y-4">
+                  Passa na garantia
+                </h3>
+                <ul className="mt-6 space-y-4">
                   {covered.map((item) => (
-                    <li key={item} className="flex gap-3 border-b border-line pb-4 text-ink-2 last:border-0">
+                    <li key={item} className="flex gap-3 border-b border-line pb-4 text-ink-2 last:border-0 last:pb-0">
                       <LuCheck className="mt-1 shrink-0 text-ok" aria-hidden />
                       {item}
                     </li>
@@ -121,15 +103,15 @@ export function Home() {
                 </ul>
               </div>
               <div className="border-t border-line p-6 md:border-l md:border-t-0 md:p-10">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-no-soft text-no">
+                <h3 className="flex items-center gap-3 font-display text-xl font-semibold text-ink">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-no text-on-no">
                     <LuX aria-hidden />
                   </span>
-                  <h3 className="font-display text-xl font-semibold text-ink">Não passa na garantia</h3>
-                </div>
-                <ul className="mt-7 space-y-4">
+                  Não passa na garantia
+                </h3>
+                <ul className="mt-6 space-y-4">
                   {notCovered.map((item) => (
-                    <li key={item} className="flex gap-3 border-b border-line pb-4 text-ink-2 last:border-0">
+                    <li key={item} className="flex gap-3 border-b border-line pb-4 text-ink-2 last:border-0 last:pb-0">
                       <LuX className="mt-1 shrink-0 text-no" aria-hidden />
                       {item}
                     </li>
@@ -137,43 +119,35 @@ export function Home() {
                 </ul>
               </div>
             </div>
-            <p className="border-t border-line bg-bg-2/60 px-6 py-4 text-sm text-ink-3 md:px-8">
-              <span className="font-mono text-accent">*</span> Todo caso passa por
-              uma análise técnica na loja antes de ser confirmado como garantia.
+            <p className="border-t border-line bg-bg-2/60 px-6 py-4 text-sm leading-relaxed text-ink-2 md:px-10">
+              A garantia vale por 3 meses. Todo caso passa por uma análise técnica na loja antes de ser confirmado.
             </p>
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
+        <section aria-label="Leitura complementar" className="mx-auto max-w-6xl px-4 pt-16 md:px-6 md:pt-32">
           <BonusContent />
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 pt-20 md:px-6 md:pt-36">
-          <div
-            data-reveal
-            className="grain relative isolate overflow-hidden rounded-[32px] border border-line px-6 py-16 md:px-16 md:py-24"
-          >
+        <section aria-labelledby="t-suporte" className="mx-auto max-w-6xl px-4 pt-16 md:px-6 md:pt-32">
+          <div className="grain relative isolate overflow-hidden rounded-[32px] border border-line px-6 py-12 md:px-16 md:py-24">
             <div className="mesh -z-10 opacity-80" aria-hidden>
               <span className="m1" />
               <span className="m2" />
               <span className="m3" />
             </div>
             <div className="max-w-2xl">
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
-                Não passou na garantia?
-              </span>
-              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-ink md:text-5xl">
-                Você não fica sem suporte.
+              <h2 id="t-suporte" className="font-display text-[1.75rem] font-semibold leading-tight text-ink md:text-5xl">
+                Não passou na garantia? Você não fica sem suporte.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-ink-2">
-                Analisamos cada caso com transparência e buscamos sempre a
-                solução mais econômica para você.
+                Analisamos cada caso com transparência e buscamos sempre a solução mais econômica para você.
               </p>
               <WhatsAppButton
-                className="mt-9"
+                className="mt-8 w-full sm:w-auto"
                 message="Olá! Meu aparelho apresentou um problema depois do reparo e gostaria de uma avaliação."
               >
-                Quero uma avaliação
+                Pedir avaliação no WhatsApp
               </WhatsAppButton>
             </div>
           </div>
@@ -190,10 +164,10 @@ function Hero() {
   return (
     <section
       ref={ref}
-      className="grain relative isolate flex h-svh min-h-140 w-full items-center justify-center overflow-hidden"
+      className="grain relative isolate flex min-h-svh w-full items-center overflow-hidden md:h-svh md:min-h-160"
       style={{ "--p": 0 }}
     >
-      {/* Fundo (parallax mais lento) */}
+      {/* Fundo: mesh + trilhas de circuito (parallax mais lento) */}
       <div
         aria-hidden
         className="absolute inset-0 -z-20 will-change-transform"
@@ -206,40 +180,41 @@ function Hero() {
           <span className="m4" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_45%,transparent,var(--bg)_85%)]" />
-        <div className="absolute inset-0 hidden opacity-[0.06] bg-[linear-gradient(to_right,var(--ink)_1px,transparent_1px),linear-gradient(to_bottom,var(--ink)_1px,transparent_1px)] bg-size-[64px_64px] mask-[radial-gradient(60%_60%_at_50%_50%,black,transparent)] md:block" />
+        <CircuitBackground />
       </div>
 
-      {/* Conteúdo centralizado */}
       <div
-        className="relative z-10 w-full px-5 md:-mt-[7vh] md:px-6"
+        className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 px-5 pb-12 pt-24 md:-mt-[7vh] lg:grid-cols-[1.1fr_1fr] lg:gap-6 md:px-6 md:pb-0 md:pt-16"
         style={{
           transform: "translate3d(0, calc(var(--p) * -30%), 0)",
           opacity: "calc(1 - var(--p) * 1.8)",
         }}
       >
-        <div className="mx-auto max-w-3xl animate-fade-up text-center">
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-3">
-            BH Assistência Técnica <span className="text-accent">/</span> Porto Velho
-          </span>
-          <h1 className="mt-5 font-display text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-[5.6rem]">
+        <div className="mx-auto max-w-2xl animate-fade-up text-center lg:mx-0 lg:max-w-none lg:text-left">
+          <p className="text-sm font-medium text-ink-2">Guia de garantia da BH Assistência Técnica</p>
+          <h1 className="mt-4 font-display text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl md:mt-5 lg:text-[5rem]">
             Garantia sem letra{" "}
-            <span className="relative inline-block text-accent">
+            <span className="relative inline-block whitespace-nowrap text-accent">
+              <span
+                aria-hidden
+                className="absolute -inset-x-1.5 bottom-[8%] top-[52%] -z-10 -rotate-1 rounded-md bg-accent/20"
+              />
               miúda.
               <svg
                 aria-hidden
-                viewBox="0 0 200 12"
-                className="absolute -bottom-2 left-0 w-full text-accent/60"
+                viewBox="0 0 200 14"
                 preserveAspectRatio="none"
+                className="underline-draw absolute -bottom-2.5 left-0 h-3 w-full text-accent"
               >
-                <path d="M2 9 C 50 2, 120 2, 198 7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                <path d="M3 10 C 52 3, 124 2, 197 8" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
               </svg>
             </span>
           </h1>
-          <p className="mx-auto mt-7 max-w-lg text-base leading-relaxed text-ink-2 md:text-lg">
+          <p className="mx-auto mt-7 max-w-md text-base leading-relaxed text-ink-2 md:text-lg lg:mx-0">
             O que passa e o que não passa na garantia de 3 meses dos nossos
             serviços — explicado caso a caso, com exemplos.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
             <a
               href="#servicos"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[15px] font-semibold text-bg transition-all hover:gap-3"
@@ -247,9 +222,28 @@ function Hero() {
               Ver serviços
               <LuArrowDown className="transition-transform group-hover:translate-y-0.5" aria-hidden />
             </a>
-            <WhatsAppButton variant="ghost">Tirar dúvida</WhatsAppButton>
+            <WhatsAppButton variant="ghost">Tirar dúvida no WhatsApp</WhatsAppButton>
           </div>
         </div>
+
+        {/* Ilustração + vereditos */}
+        {/* Só no desktop: no mobile e no tablet o herói fica só com o texto */}
+        <figure className="relative mx-auto hidden w-full max-w-md animate-fade-up [animation-delay:150ms] lg:block">
+          <HeroArt className="h-auto w-full" />
+          <figcaption className="sr-only">Exemplos de veredito da garantia</figcaption>
+          <span className="absolute -left-2 top-[18%] flex items-center gap-2 rounded-full border border-line bg-panel/90 py-1.5 pl-1.5 pr-3 text-[13px] font-semibold text-ink shadow-lg backdrop-blur md:-left-6">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-ok text-on-ok">
+              <LuCheck aria-hidden />
+            </span>
+            Defeito de fábrica: passa
+          </span>
+          <span className="absolute -right-2 bottom-[16%] flex items-center gap-2 rounded-full border border-line bg-panel/90 py-1.5 pl-1.5 pr-3 text-[13px] font-semibold text-ink shadow-lg backdrop-blur md:-right-4">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-no text-on-no">
+              <LuX aria-hidden />
+            </span>
+            Queda ou líquido: não passa
+          </span>
+        </figure>
       </div>
     </section>
   );

@@ -2,11 +2,8 @@ import { useRef, useState } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { Illustration, VARIANTS } from "../../../../../illustrations";
 
-/**
- * Galeria com as 3 versões da ilustração do caso, sobre um fundo
- * com a luz da categoria e legenda técnica.
- */
-export function Carrousel({ art, alt = "", index = 1, accent, covered }) {
+/** Galeria com as 3 versões da ilustração do caso. */
+export function Carrousel({ art, alt = "", accent }) {
   const track = useRef(null);
   const [current, setCurrent] = useState(0);
   const slides = Array.from({ length: VARIANTS }, (_, i) => i);
@@ -25,7 +22,7 @@ export function Carrousel({ art, alt = "", index = 1, accent, covered }) {
   }
 
   return (
-    <figure className="group relative isolate overflow-hidden rounded-[22px] bg-linear-to-b from-panel-2 to-bg-2">
+    <figure className="relative isolate overflow-hidden rounded-2xl bg-linear-to-b from-panel-2 to-bg-2 md:rounded-[22px]">
       <div
         aria-hidden
         className="absolute inset-x-0 bottom-0 -z-10 h-2/3 opacity-30"
@@ -37,39 +34,32 @@ export function Carrousel({ art, alt = "", index = 1, accent, covered }) {
         onScroll={onScroll}
         className="scrollbar-none flex snap-x snap-mandatory overflow-x-auto"
         tabIndex={0}
-        aria-label={`Galeria: ${alt}`}
+        role="group"
+        aria-roledescription="galeria"
+        aria-label={`Exemplos: ${alt}`}
       >
         {slides.map((i) => (
-          <div key={i} className="flex w-full shrink-0 snap-center items-center justify-center px-4 pb-12 pt-10 md:px-6">
+          <div key={i} className="flex w-full shrink-0 snap-center items-center justify-center px-3 pb-16 pt-6 md:px-6">
             <Illustration
               id={art}
               variant={i}
-              label={`${alt} — exemplo ${i + 1}`}
-              className={`h-56 w-full transition-transform duration-700 ease-out md:h-72 ${
-                i === current ? "scale-100 group-hover:scale-[1.03]" : "scale-90"
-              }`}
+              label={`${alt}, exemplo ${i + 1} de ${VARIANTS}`}
+              className="h-52 w-full md:h-72"
             />
           </div>
         ))}
       </div>
 
-      <figcaption className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between px-5 pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-3">
-        <span>
-          Fig. {String(index).padStart(2, "0")}.{current + 1}
-        </span>
-        <span className={covered ? "text-ok" : "text-no"}>{covered ? "● coberto" : "● não coberto"}</span>
-      </figcaption>
-
-      <div className="absolute inset-x-0 bottom-3 flex items-center justify-center gap-3">
+      <figcaption className="absolute inset-x-0 bottom-2 flex items-center justify-between px-2">
         <button
           type="button"
           onClick={() => goTo(current - 1)}
           aria-label="Exemplo anterior"
-          className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-ink/10 text-ink transition hover:bg-ink/20"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink transition hover:bg-ink/10"
         >
-          <LuChevronLeft aria-hidden />
+          <LuChevronLeft aria-hidden className="text-xl" />
         </button>
-        <div className="flex gap-1.5">
+        <div className="flex items-center gap-1">
           {slides.map((i) => (
             <button
               key={i}
@@ -77,21 +67,28 @@ export function Carrousel({ art, alt = "", index = 1, accent, covered }) {
               onClick={() => goTo(i)}
               aria-label={`Ver exemplo ${i + 1}`}
               aria-current={i === current}
-              className={`h-1.5 cursor-pointer rounded-full transition-all duration-500 ${
-                i === current ? "w-6 bg-ink" : "w-1.5 bg-ink/30"
-              }`}
-            />
+              className="flex h-6 w-6 cursor-pointer items-center justify-center"
+            >
+              <span
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  i === current ? "w-5 bg-ink" : "w-1.5 bg-ink/35"
+                }`}
+              />
+            </button>
           ))}
+          <span className="sr-only" aria-live="polite">
+            Exemplo {current + 1} de {VARIANTS}
+          </span>
         </div>
         <button
           type="button"
           onClick={() => goTo(current + 1)}
           aria-label="Próximo exemplo"
-          className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-ink/10 text-ink transition hover:bg-ink/20"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink transition hover:bg-ink/10"
         >
-          <LuChevronRight aria-hidden />
+          <LuChevronRight aria-hidden className="text-xl" />
         </button>
-      </div>
+      </figcaption>
     </figure>
   );
 }

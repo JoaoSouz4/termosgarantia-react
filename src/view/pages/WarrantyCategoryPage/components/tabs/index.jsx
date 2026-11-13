@@ -51,9 +51,7 @@ export function WarrantyTabs({ active, onChange, whatsappMessage }) {
         tint="var(--glass-tint-strong)"
         className="pointer-events-auto min-w-0 flex-1 p-1.5 ring-1 ring-line-strong md:max-w-110"
       >
-        <div className="relative z-20 px-3 pb-1 pt-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-2">
-          Garantia · ver casos que
-        </div>
+        <p className="relative z-20 px-3 pb-1 pt-1 text-xs font-medium text-ink-2">Mostrar casos que</p>
         <div role="tablist" aria-label="Filtrar casos de garantia" className="relative z-20 grid grid-cols-2">
           {/* indicador deslizante: sólido, para leitura clara */}
           <span
